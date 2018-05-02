@@ -31,9 +31,9 @@ public class HomeActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
         sliderLayout = (SliderLayout) findViewById(R.id.slider);
         HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Jamur", R.drawable.a);
-        file_maps.put("Big Bang Theory", R.drawable.b);
-        file_maps.put("House of Cards", R.drawable.c);
+        file_maps.put("Jamur", R.drawable.jamurtiram);
+        file_maps.put("Menu Jamur 1", R.drawable.cripsyjamur);
+        file_maps.put("Menu Jamur 2", R.drawable.tumisjamur);
 
 
         for (String name : file_maps.keySet()) {

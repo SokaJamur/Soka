@@ -26,7 +26,6 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
-        >>>>>>> e57a1798bb73e828d190beefbc1f571b23422ddb
         <activity
             android:name=".HomeUser"
             android:label="@string/title_activity_home_user"

@@ -29,14 +29,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="activity_info_jamur.xml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_info_jamur.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_info_jamur.xml">
           <provider selected="true" editor-type-id="android-designer2">
             <state />
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="274">
-              <caret line="254" column="37" lean-forward="true" selection-start-line="254" selection-start-column="37" selection-end-line="254" selection-end-column="37" />
+              <caret line="254" column="37" lean-forward="false" selection-start-line="254" selection-start-column="37" selection-end-line="254" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -49,7 +49,17 @@
           </provider>
           <provider editor-type-id="text-editor">
             <state relative-caret-position="342">
-              <caret line="249" column="16" lean-forward="true" selection-start-line="249" selection-start-column="16" selection-end-line="249" selection-end-column="16" />
+              <caret line="249" column="16" lean-forward="false" selection-start-line="249" selection-start-column="16" selection-end-line="249" selection-end-column="16" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="170">
+              <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -2013,12 +2023,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/reppernews/sokajamur/HomeActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/item_spin.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/item_spin2.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/reppernews/sokajamur/InfoBaglog.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/reppernews/sokajamur/InfoJamur.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_info_baglog.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/activity_info_jamur.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
       </list>
     </option>
   </component>
@@ -2048,6 +2058,24 @@
       <pane id="Scratches" />
       <pane id="AndroidView">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SokaJamur" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="SokaJamur" />
@@ -2222,7 +2250,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525244121751" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525244475982" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2270,7 +2298,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525244121751" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525244475982" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2453,7 +2481,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525244121753" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1525244475984" />
       </method>
     </configuration>
     <list size="1">
@@ -2754,14 +2782,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="37" lean-forward="false" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/item_spin.xml">
       <provider editor-type-id="android-designer2">
         <state />
@@ -2799,7 +2819,7 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="342">
-          <caret line="249" column="16" lean-forward="true" selection-start-line="249" selection-start-column="16" selection-end-line="249" selection-end-column="16" />
+          <caret line="249" column="16" lean-forward="false" selection-start-line="249" selection-start-column="16" selection-end-line="249" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -2810,7 +2830,15 @@
       </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="274">
-          <caret line="254" column="37" lean-forward="true" selection-start-line="254" selection-start-column="37" selection-end-line="254" selection-end-column="37" />
+          <caret line="254" column="37" lean-forward="false" selection-start-line="254" selection-start-column="37" selection-end-line="254" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="4" lean-forward="false" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="4" />
           <folding />
         </state>
       </provider>

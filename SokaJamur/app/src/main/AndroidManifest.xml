@@ -22,18 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Main2Activity"
-            android:label="@string/title_activity_main2"
-<<<<<<< HEAD
-            android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
-        <activity android:name=".InfoJamur" />
-        <activity android:name=".InfoBaglog"></activity>
-=======
->>>>>>> 047d24cd4f2e27db79e590545411e2563ecd4e48
-=======
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+
 
         <meta-data
             android:name="preloaded_fonts"

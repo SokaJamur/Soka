@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d5d5d5"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.reppernews.sokajamur.HomeActivity"
     tools:showIn="@layout/app_bar_home">
+
     <com.daimajia.slider.library.SliderLayout
         android:id="@+id/slider"
         android:layout_width="match_parent"
-        android:layout_height="200dp" >
+        android:layout_height="200dp">
 
     </com.daimajia.slider.library.SliderLayout>
 

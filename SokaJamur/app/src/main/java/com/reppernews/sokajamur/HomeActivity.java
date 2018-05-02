@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity
         sliderLayout.setPresetTransformer(SliderLayout.Transformer.Accordion);
         sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
         sliderLayout.setCustomAnimation(new DescriptionAnimation());
-        sliderLayout.setDuration(4000);
+        sliderLayout.setDuration(3000);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

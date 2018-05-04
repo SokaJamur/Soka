@@ -30,6 +30,14 @@
             android:name=".HomeUser"
             android:label="@string/title_activity_home_user"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".LoginActivity">
+        </activity>
+        <activity
+            android:name=".DaftarActivity"
+            android:label="DaftarActivity">
+
+        </activity>
     </application>
 
 </manifest>

@@ -38,6 +38,10 @@
             android:label="DaftarActivity">
 
         </activity>
+        <activity android:name=".InfoJamur">
+        </activity>
+        <activity android:name=".InfoBaglog">
+        </activity>
     </application>
 
 </manifest>

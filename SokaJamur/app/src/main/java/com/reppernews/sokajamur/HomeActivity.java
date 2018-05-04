@@ -43,6 +43,7 @@ public class HomeActivity extends AppCompatActivity
             textSliderView
                     .description(name)
                     .image(file_maps.get(name))
+
                     .setScaleType(BaseSliderView.ScaleType.Fit);
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
@@ -108,10 +109,16 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_infoJamur) {
+            Intent intent = new Intent(getApplicationContext(),InfoJamur.class);
+            startActivity(intent);
         }
         else if (id == R.id.nav_infoBaglog) {
+            Intent intent = new Intent(getApplicationContext(),InfoBaglog.class);
+            startActivity(intent);
+
 
         }
+
         else if (id == R.id.nav_login) {
             Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(intent);

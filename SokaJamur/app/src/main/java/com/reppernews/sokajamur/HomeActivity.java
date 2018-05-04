@@ -43,6 +43,7 @@ public class HomeActivity extends AppCompatActivity
             textSliderView
                     .description(name)
                     .image(file_maps.get(name))
+
                     .setScaleType(BaseSliderView.ScaleType.Fit);
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
@@ -111,7 +112,9 @@ public class HomeActivity extends AppCompatActivity
         }
         else if (id == R.id.nav_infoBaglog) {
 
+
         }
+
         else if (id == R.id.nav_login) {
             Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(intent);

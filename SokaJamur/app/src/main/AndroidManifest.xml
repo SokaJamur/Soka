@@ -26,10 +26,13 @@
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
+
         <activity
             android:name=".HomeUser"
             android:label="@string/title_activity_home_user"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".PesananSaya" />
+        <activity android:name=".ProfilUser"></activity>
     </application>
 
 </manifest>

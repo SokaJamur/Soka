@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../SokaJamur.iml" filepath="$PROJECT_DIR$/../SokaJamur.iml" />
       <module fileurl="file://$PROJECT_DIR$/app.iml" filepath="$PROJECT_DIR$/app.iml" />
-      <module fileurl="file://C:\Users\Server\Documents\Soka\SokaJamur\app\app.iml" filepath="C:\Users\Server\Documents\Soka\SokaJamur\app\app.iml" />
     </modules>
   </component>
 </project>

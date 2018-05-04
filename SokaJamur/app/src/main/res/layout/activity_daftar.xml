@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.68">
 
         <EditText
-            android:id="@+id/isianPass"
+            android:id="@+id/isianNama"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginEnd="32dp"
@@ -129,19 +129,19 @@
             tools:ignore="DuplicateIds" />
 
         <Button
-            android:id="@+id/btnmasuk"
+            android:id="@+id/btndaftar"
             android:layout_width="183dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            android:text="MASUK"
-            android:fontFamily="@font/skranji_bold"
             android:background="#6c6c6c"
+            android:fontFamily="@font/skranji_bold"
+            android:text="DAFTAR"
             android:textColor="#ffffff"
-            android:layout_gravity="center"
+            android:textSize="18sp"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.899"

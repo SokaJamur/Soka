@@ -14,11 +14,11 @@ public class DaftarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_daftar);
 
-        final EditText isianNama= (EditText) findViewById(R.id.isianNama);
-        final EditText isianAlm = (EditText) findViewById(R.id.isianAlm);
-        final EditText isianNo = (EditText) findViewById(R.id.isianNo);
-        final EditText isianEmail = (EditText) findViewById(R.id.isianEmail);
-        final EditText isianPass = (EditText) findViewById(R.id.isianPass);
+         EditText isianNama= (EditText) findViewById(R.id.isianNama);
+         EditText isianAlm = (EditText) findViewById(R.id.isianAlm);
+         EditText isianNo = (EditText) findViewById(R.id.isianNo);
+         EditText isianEmail = (EditText) findViewById(R.id.isianEmail);
+         EditText isianPass = (EditText) findViewById(R.id.isianPass);
         Button btndaftar = (Button) findViewById(R.id.btndaftar);
 
         btndaftar.setOnClickListener(new View.OnClickListener() {

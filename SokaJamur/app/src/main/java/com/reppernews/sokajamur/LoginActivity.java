@@ -40,14 +40,14 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
 
-    public final static String TAG_USERNAME = "username";
+    public final static String TAG_NOHP = "nohp";
     public final static String TAG_ID = "id";
 
     String tag_json_obj = "json_obj_req";
 
     SharedPreferences sharedpreferences;
     Boolean session = false;
-    String id, username;
+    String id, nohp;
     public static final String my_shared_preferences = "my_shared_preferences";
     public static final String session_status = "session_status";
 
@@ -72,12 +72,12 @@ public class LoginActivity extends AppCompatActivity {
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
         session = sharedpreferences.getBoolean(session_status, false);
         id = sharedpreferences.getString(TAG_ID, null);
-        username = sharedpreferences.getString(TAG_USERNAME, null);
+        nohp = sharedpreferences.getString(TAG_NOHP, null);
 
         if (session) {
             Intent intent = new Intent(LoginActivity.this, HomeUser.class);
             intent.putExtra(TAG_ID, id);
-            intent.putExtra(TAG_USERNAME, username);
+            intent.putExtra(TAG_NOHP, nohp);
             finish();
             startActivity(intent);
         }
@@ -85,14 +85,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                String username = isianNo.getText().toString();
+                String nohp = isianNo.getText().toString();
                 String password = isianPass.getText().toString();
                 // mengecek kolom yang kosong
-                if (username.trim().length() > 0 && password.trim().length() > 0) {
+                if (nohp.trim().length() > 0 && password.trim().length() > 0) {
                     if (conMgr.getActiveNetworkInfo() != null
                             && conMgr.getActiveNetworkInfo().isAvailable()
                             && conMgr.getActiveNetworkInfo().isConnected()) {
-                        checkLogin(username, password);
+                        checkLogin(nohp, password);
                     } else {
                         Toast.makeText(getApplicationContext() ,"No Internet Connection", Toast.LENGTH_LONG).show();
                     }
@@ -111,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
      startActivity(intent);
     }
 
-    private void checkLogin(final String username, final String password) {
+    private void checkLogin(final String nohp, final String password) {
         pDialog = new ProgressDialog(this);
         pDialog.setCancelable(false);
         pDialog.setMessage("Logging in ...");
@@ -130,7 +130,7 @@ public class LoginActivity extends AppCompatActivity {
 
                     // Check for error node in json
                     if (success == 1) {
-                        String username = jObj.getString(TAG_USERNAME);
+                        String nohp = jObj.getString(TAG_NOHP);
                         String id = jObj.getString(TAG_ID);
 
                         Log.e("Successfully Login!", jObj.toString());
@@ -141,13 +141,13 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
                         editor.putString(TAG_ID, id);
-                        editor.putString(TAG_USERNAME, username);
+                        editor.putString(TAG_NOHP, nohp);
                         editor.commit();
 
                         // Memanggil main activity
                         Intent intent = new Intent(LoginActivity.this, HomeUser.class);
                         intent.putExtra(TAG_ID, id);
-                        intent.putExtra(TAG_USERNAME, username);
+                        intent.putExtra(TAG_NOHP, nohp);
                         finish();
                         startActivity(intent);
                     } else {
@@ -178,7 +178,7 @@ public class LoginActivity extends AppCompatActivity {
             protected Map<String, String> getParams() {
                 // Posting parameters to login url
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("username", username);
+                params.put("nohp", nohp);
                 params.put("password", password);
 
                 return params;

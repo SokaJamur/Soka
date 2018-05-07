@@ -48,6 +48,7 @@
             android:name=".HomeAdmin"
             android:label="@string/title_activity_home_admin"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".AdminBarang"/>
     </application>
 
 </manifest>

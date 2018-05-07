@@ -17,8 +17,7 @@
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
         <meta-data
             android:name="preloaded_fonts"
@@ -27,31 +26,28 @@
         <activity
             android:name=".HomeUser"
             android:label="@string/title_activity_home_user"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".PesananSaya" />
-        <activity android:name=".ProfilUser"></activity>
-        <activity
-            android:name=".LoginActivity">
-        </activity>
+        <activity android:name=".ProfilUser" />
+        <activity android:name=".LoginActivity"></activity>
         <activity
             android:name=".DaftarActivity"
-            android:label="DaftarActivity">
-        </activity>
-
-        <activity android:name=".InfoJamur">
-        </activity>
-        <activity android:name=".InfoBaglog">
-        </activity>
-
+            android:label="DaftarActivity"></activity>
+        <activity android:name=".InfoJamur"></activity>
+        <activity android:name=".InfoBaglog"></activity>
+        <activity
+            android:name=".HomeAdmin"
+            android:label="@string/title_activity_home_admin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

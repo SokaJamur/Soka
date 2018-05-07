@@ -178,8 +178,11 @@
         android:id="@+id/btntambah"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#6c6c6c"
+        android:fontFamily="@font/skranji_bold"
         android:text="TAMBAH"
+        android:textColor="#ffffff"
+        tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="148dp"
-        tools:layout_editor_absoluteY="437dp"
-        tools:ignore="MissingConstraints" />
+        tools:layout_editor_absoluteY="437dp" />
 </android.support.constraint.ConstraintLayout>

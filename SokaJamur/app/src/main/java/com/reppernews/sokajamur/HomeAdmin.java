@@ -85,7 +85,8 @@ public class HomeAdmin extends AppCompatActivity
             Intent intent = new Intent(getApplicationContext(),AdminBarang.class);
             startActivity(intent);
         } else if (id == R.id.nav_pesananPembeli) {
-
+            Intent intent = new Intent(getApplicationContext(),PesananPembeli.class);
+            startActivity(intent);
         } else if (id == R.id.nav_logoutAdmin) {
             Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
             startActivity(intent);

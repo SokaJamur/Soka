@@ -1,5 +1,6 @@
 package com.reppernews.sokajamur;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -75,18 +76,21 @@ public class HomeUser extends AppCompatActivity
 
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_jamurUser) {
+            Intent intent = new Intent(getApplicationContext(),InfoJamur.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_baglogUser) {
+            Intent intent = new Intent(getApplicationContext(),InfoBaglog.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_pesananUser) {
+            Intent intent = new Intent(getApplicationContext(),PesananSaya.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_profilUser) {
+            Intent intent = new Intent(getApplicationContext(),ProfilUser.class);
+            startActivity(intent);
+        } else if (id == R.id.nav_logoutUser) {
+            Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

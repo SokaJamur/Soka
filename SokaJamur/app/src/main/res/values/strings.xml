@@ -25,5 +25,6 @@
         <item>Sebelum Barang Dikirim</item>
         <item>Setelah Barang Dikirim</item>
     </string-array>
+    <string name="title_activity_home_admin">HomeAdmin</string>
 
 </resources>

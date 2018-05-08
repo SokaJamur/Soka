@@ -37,177 +37,112 @@
                     android:id="@+id/textView27"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/skranji"
                     android:text="Pesanan     : Jamur Tiram"
                     android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView28"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/skranji"
                     android:text="Jumlah      : 1 Kg"
                     android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView27"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView29"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
                     android:fontFamily="@font/skranji"
                     android:text="Harga        : Rp 13.000"
                     android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView28"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView30"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
                     android:fontFamily="@font/skranji"
                     android:text="Total         : Rp 13.000"
                     android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView29"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView31"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/skranji"
                     android:text="TGL Pesan  : 12/04/2018"
                     android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView30"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="4dp"
                     android:fontFamily="@font/skranji"
                     android:text="Status        : Sudah di Terima"
                     android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView31"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/textView35"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
                     android:layout_marginTop="8dp"
                     android:text="--------------------------------------------------------------------------------------"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView32"
-                    tools:layout_editor_absoluteX="16dp"
                     tools:ignore="MissingConstraints" />
-
-                <TextView
-                    android:id="@+id/textView36"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="276dp"
-                    android:fontFamily="@font/skranji"
-                    android:text="Pesanan     : Baglog"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toTopOf="parent"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp" />
-
-                <TextView
-                    android:id="@+id/textView37"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/skranji"
-                    android:text="Jumlah      : 100 Biji"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView36"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp" />
-
-                <TextView
-                    android:id="@+id/textView38"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/skranji"
-                    android:text="Harga        : Rp 2.500"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView37"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp" />
-
-                <TextView
-                    android:id="@+id/textView39"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/skranji"
-                    android:text="Total         : Rp 250.000"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView38"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp" />
-
-                <TextView
-                    android:id="@+id/textView40"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/skranji"
-                    android:text="TGL Pesan  : 12/04/2018"
-                    android:textSize="20sp"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp"
-                    tools:layout_editor_absoluteY="427dp" />
-
-                <TextView
-                    android:id="@+id/textView41"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/skranji"
-                    android:text="Status        : Belum di Kirim"
-                    android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@+id/textView40"
-                    tools:ignore="MissingConstraints"
-                    tools:layout_editor_absoluteX="16dp" />
 
                 <Button
                     android:id="@+id/button2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:background="@android:color/holo_red_light"
                     android:fontFamily="@font/skranji_bold"
                     android:lineSpacingExtra="24sp"
                     android:text="Terkirim"
                     android:textColor="#ffffff"
-                    tools:layout_editor_absoluteX="280dp"
-                    tools:layout_editor_absoluteY="198dp" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="46dp"
-                    android:background="#6c6c6c"
-                    android:fontFamily="@font/skranji_bold"
-                    android:text="Terkirim"
-                    android:textColor="#ffffff"
-                    tools:layout_editor_absoluteX="280dp"
-                    tools:layout_editor_absoluteY="461dp" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@+id/textView32"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.958"
+                    tools:ignore="MissingConstraints" />
 
             </android.support.constraint.ConstraintLayout>
 

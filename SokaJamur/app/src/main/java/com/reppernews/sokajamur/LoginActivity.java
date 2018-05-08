@@ -199,4 +199,9 @@ public class LoginActivity extends AppCompatActivity {
         if (pDialog.isShowing())
             pDialog.dismiss();
     }
+
+    public void coba(View view) {
+        Intent intent = new Intent(getApplicationContext(),HomeAdmin.class);
+        startActivity(intent);
+    }
 }

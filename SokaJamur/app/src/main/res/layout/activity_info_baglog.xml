@@ -118,13 +118,13 @@
             android:layout_width="wrap_content"
             android:layout_height="36dp"
             android:layout_marginEnd="4dp"
-            android:layout_marginTop="49dp"
+            android:layout_marginTop="8dp"
             android:ems="10"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/editText2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="1.0" />
 
         <EditText
             android:id="@+id/editText2"
@@ -150,6 +150,7 @@
             android:id="@+id/editText4"
             android:layout_width="wrap_content"
             android:layout_height="36dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginEnd="4dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -160,7 +161,7 @@
             android:id="@+id/editText10"
             android:layout_width="wrap_content"
             android:layout_height="33dp"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="24dp"
             android:layout_marginEnd="4dp"
             android:ems="10"
             android:inputType="textPersonName"
@@ -172,14 +173,11 @@
             android:layout_width="wrap_content"
             android:layout_height="22dp"
             android:layout_marginBottom="13dp"
-            android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/skranji"
             android:text="Nama"
             android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/textView19"
-            app:layout_constraintEnd_toStartOf="@+id/editText"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -218,13 +216,13 @@
             android:layout_height="20dp"
             android:layout_marginBottom="14dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/skranji"
             android:text="Jumlah"
             android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/textView22"
             app:layout_constraintEnd_toStartOf="@+id/editText4"
-            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -232,14 +230,11 @@
             android:layout_width="wrap_content"
             android:layout_height="21dp"
             android:layout_marginBottom="36dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/skranji"
             android:text="Harga"
             android:textSize="17sp"
             app:layout_constraintBottom_toTopOf="@+id/textView23"
-            app:layout_constraintEnd_toStartOf="@+id/editText10"
-            app:layout_constraintHorizontal_bias="0.091"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView

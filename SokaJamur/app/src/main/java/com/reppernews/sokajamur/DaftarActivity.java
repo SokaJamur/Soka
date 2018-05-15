@@ -118,13 +118,11 @@ public class DaftarActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
-
                     }
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
                 }
-
             }
         }, new Response.ErrorListener() {
 
@@ -135,7 +133,6 @@ public class DaftarActivity extends AppCompatActivity {
                         error.getMessage(), Toast.LENGTH_LONG).show();
 
                 hideDialog();
-
             }
         }) {
 
@@ -149,10 +146,8 @@ public class DaftarActivity extends AppCompatActivity {
                 params.put("alamat", alamat);
                 params.put("no", nohp);
                 //params.put("confirm_password", confirm_password);
-
                 return params;
             }
-
         };
 
         // Adding request to request queue
@@ -175,5 +170,4 @@ public class DaftarActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
-
 }

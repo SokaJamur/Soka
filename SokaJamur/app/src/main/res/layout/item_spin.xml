@@ -5,7 +5,7 @@
 
     <TextView
         android:id="@+id/txItemSpin"
-        android:layout_width="394dp"
+        android:layout_width="167dp"
         android:layout_height="46dp"
         android:layout_weight="1"
         android:text="TextView" />

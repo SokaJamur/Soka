@@ -14,16 +14,14 @@
 
     <string name="spinner">Spinner</string>
     <string-array name="pilihan_menu">
-        <item>Pilih</item>
-        <item>Sebelum Barang Dikirim</item>
-        <item>Setelah Barang Dikirim</item>
+        <item>Sebelum Dikirim</item>
+        <item>Setelah Dikirim</item>
     </string-array>
 
     <string name="spinner2">Spinner2</string>
     <string-array name="pilihan_menu2">
-        <item>Pilih</item>
-        <item>Sebelum Barang Dikirim</item>
-        <item>Setelah Barang Dikirim</item>
+        <item>Sebelum Dikirim</item>
+        <item>Setelah Dikirim</item>
     </string-array>
     <string name="title_activity_home_admin">HomeAdmin</string>
 

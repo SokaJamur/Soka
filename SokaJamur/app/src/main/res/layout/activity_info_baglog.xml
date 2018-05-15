@@ -58,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:layout_marginEnd="323dp"
-            android:layout_marginStart="17dp"
+            android:layout_marginStart="16dp"
             android:fontFamily="@font/skranji"
             android:text="Stok"
             android:textSize="17sp"
@@ -93,6 +93,7 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout4">
 
@@ -173,7 +174,7 @@
             android:layout_width="wrap_content"
             android:layout_height="22dp"
             android:layout_marginBottom="13dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/skranji"
             android:text="Nama"
             android:textSize="17sp"
@@ -186,7 +187,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/skranji"
             android:text="Alamat"
             android:textSize="17sp"
@@ -201,7 +202,7 @@
             android:layout_height="20dp"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/skranji"
             android:text="No. Hp"
             android:textSize="17sp"
@@ -216,7 +217,7 @@
             android:layout_height="20dp"
             android:layout_marginBottom="14dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/skranji"
             android:text="Jumlah"
             android:textSize="17sp"
@@ -230,7 +231,7 @@
             android:layout_width="wrap_content"
             android:layout_height="21dp"
             android:layout_marginBottom="36dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/skranji"
             android:text="Harga"
             android:textSize="17sp"
@@ -243,7 +244,7 @@
             android:layout_height="30dp"
             android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="8dp"
             android:fontFamily="@font/skranji"
             android:text="Metode Pembayaran"
             android:textSize="17sp"
@@ -260,10 +261,25 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginBottom="20dp"
-            android:layout_marginEnd="4dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/border_style"
             app:layout_constraintBottom_toTopOf="@+id/btPilih2"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="23dp"
+            android:layout_height="51dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/cbBox2"
+            app:layout_constraintEnd_toEndOf="@+id/cbBox2"
+            app:layout_constraintHorizontal_bias="0.969"
+            app:layout_constraintStart_toStartOf="@+id/cbBox2"
+            app:layout_constraintTop_toTopOf="@+id/cbBox2"
+            app:layout_constraintVertical_bias="0.612"
+            app:srcCompat="@drawable/logo_cbox" />
 
         <Button
             android:id="@+id/btPilih2"
@@ -271,8 +287,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cbBox"
             android:layout_centerHorizontal="true"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
             android:background="#6c6c6c"
             android:onClick="klikPilih2"
             android:text="Pesan"
@@ -281,5 +297,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:ignore="OnClick" />
+
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

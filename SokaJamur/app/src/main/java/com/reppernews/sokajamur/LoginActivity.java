@@ -17,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.reppernews.sokajamur.app.AppController;
 
 import org.json.JSONException;
 import org.json.JSONObject;

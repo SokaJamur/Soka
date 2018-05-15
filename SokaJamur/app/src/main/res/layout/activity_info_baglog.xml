@@ -111,7 +111,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.428" />
+            app:layout_constraintVertical_bias="0.272" />
 
         <EditText
             android:id="@+id/editText"
@@ -241,7 +241,7 @@
             android:id="@+id/textView23"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="24dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="16dp"
             android:fontFamily="@font/skranji"
@@ -255,7 +255,7 @@
         <Spinner
             android:id="@+id/cbBox2"
             android:layout_width="174dp"
-            android:layout_height="24dp"
+            android:layout_height="37dp"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"

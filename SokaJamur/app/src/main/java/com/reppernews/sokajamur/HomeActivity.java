@@ -88,12 +88,11 @@ public class HomeActivity extends AppCompatActivity
         else if (id == R.id.nav_infoBaglog) {
             Intent intent = new Intent(getApplicationContext(),InfoBaglog.class);
             startActivity(intent);
-
-
-        }
+}
 
         else if (id == R.id.nav_login) {
             Intent intent = new Intent(getApplicationContext(),LoginActivity.class);
+            finish();
             startActivity(intent);
         }
 

@@ -74,12 +74,23 @@ public class LoginActivity extends AppCompatActivity {
         id = sharedpreferences.getString(TAG_ID, null);
         nohp = sharedpreferences.getString(TAG_NOHP, null);
 
-        if (session) {
-            Intent intent = new Intent(LoginActivity.this, HomeUser.class);
-            intent.putExtra(TAG_ID, id);
-            intent.putExtra(TAG_NOHP, nohp);
-            finish();
-            startActivity(intent);
+        if(session){
+            if(nohp.equals("admin")) {
+                Intent intent = new Intent(LoginActivity.this, HomeAdmin.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_NOHP, nohp);
+                finish();
+                startActivity(intent);
+            }
+            else{
+                Intent intent = new Intent(LoginActivity.this, HomeUser.class);
+                intent.putExtra(TAG_ID, id);
+                intent.putExtra(TAG_NOHP, nohp);
+                finish();
+                startActivity(intent);
+            }
+
+
         }
         btnmasuk.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,6 +143,7 @@ public class LoginActivity extends AppCompatActivity {
                     if (success == 1) {
                         String nohp = jObj.getString(TAG_NOHP);
                         String id = jObj.getString(TAG_ID);
+                        String nohp1 = isianNo.getText().toString();
 
                         Log.e("Successfully Login!", jObj.toString());
 
@@ -141,15 +153,24 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
                         editor.putString(TAG_ID, id);
-                        editor.putString(TAG_NOHP, nohp);
+                        editor.putString(TAG_NOHP, nohp1);
                         editor.commit();
 
                         // Memanggil main activity
-                        Intent intent = new Intent(LoginActivity.this, HomeUser.class);
-                        intent.putExtra(TAG_ID, id);
-                        intent.putExtra(TAG_NOHP, nohp);
-                        finish();
-                        startActivity(intent);
+                        if(nohp1.equals("admin")){
+                            Intent intent = new Intent(LoginActivity.this, HomeAdmin.class);
+                            intent.putExtra(TAG_ID, id);
+                            intent.putExtra(TAG_NOHP, nohp1);
+                            finish();
+                            startActivity(intent);
+                        }
+                        else{
+                            Intent intent = new Intent(LoginActivity.this, HomeUser.class);
+                            intent.putExtra(TAG_ID, id);
+                            intent.putExtra(TAG_NOHP, nohp);
+                            finish();
+                            startActivity(intent);
+                        }
                     } else {
                         Toast.makeText(getApplicationContext(),
                                 jObj.getString(TAG_MESSAGE), Toast.LENGTH_LONG).show();
@@ -202,6 +223,12 @@ public class LoginActivity extends AppCompatActivity {
 
     public void coba(View view) {
         Intent intent = new Intent(getApplicationContext(),HomeAdmin.class);
+        startActivity(intent);
+    }
+    @Override
+    public void onBackPressed(){
+        Intent intent = new Intent(getApplicationContext(),HomeActivity.class);
+        finish();
         startActivity(intent);
     }
 }

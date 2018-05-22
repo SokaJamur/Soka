@@ -1,6 +1,7 @@
 package com.reppernews.sokajamur;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,11 +13,15 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
+import static com.reppernews.sokajamur.LoginActivity.session_status;
 
 public class InfoBaglog extends AppCompatActivity {
     private Spinner combobox2;
     private Button btpilih2;
+    public final static String TAG_NOHP = "nohp";
     SharedPreferences sharedPreferences;
+    Boolean session = false;
+    String nohp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,8 @@ public class InfoBaglog extends AppCompatActivity {
         ArrayAdapter<String> adapter=new ArrayAdapter<String>(this,R.layout.item_spin,R.id.txItemSpin, pilihan_menu2);
         combobox2.setAdapter(adapter);
         sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+        session = sharedPreferences.getBoolean(session_status, false);
+        nohp = sharedPreferences.getString(TAG_NOHP, null);
 
         combobox2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -34,7 +41,7 @@ public class InfoBaglog extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view,
                                        int position, long id) {
 
-                Toast.makeText(InfoBaglog.this, combobox2.getSelectedItem().toString(), Toast.LENGTH_LONG).show();
+
 
             }
 
@@ -44,12 +51,33 @@ public class InfoBaglog extends AppCompatActivity {
 
             }
         });
+        btpilih2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(session){
+                        Intent intent = new Intent(getApplicationContext(), PesananSaya.class);
+                        intent.putExtra(TAG_NOHP, nohp);
+                        finish();
+                        startActivity(intent);
+                    }
+                    else{
+                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                        intent.putExtra(TAG_NOHP, nohp);
+                        finish();
+                        startActivity(intent);
+                    }
+
+
+                }
+
+        });
 
     }
 
-    public void klikPilih(View v){
+    public void klikPilih2(View v){
         String pilihan=combobox2.getSelectedItem().toString();
         Toast.makeText(this,pilihan,Toast.LENGTH_SHORT).show();
     }
+
 }
 

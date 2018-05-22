@@ -111,13 +111,13 @@
                     android:id="@+id/textView12"
                     android:layout_width="200dp"
                     android:layout_height="32dp"
-                    android:layout_marginEnd="56dp"
-                    android:layout_marginStart="34dp"
+                    android:layout_marginBottom="4dp"
+                    android:layout_marginEnd="42dp"
+                    android:layout_marginStart="48dp"
                     android:fontFamily="@font/skranji"
                     android:text="Rp.13.000 /Kg"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toEndOf="@+id/textView5" />
 
                 <TextView
@@ -220,6 +220,7 @@
                     android:textSize="17sp"
                     app:layout_constraintBottom_toTopOf="@+id/textView19"
                     app:layout_constraintEnd_toStartOf="@+id/editText"
+                    app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textView17" />
 
@@ -273,7 +274,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
                     android:layout_marginBottom="12dp"
-                    android:layout_marginStart="16dp"
+                    android:layout_marginStart="8dp"
                     android:fontFamily="@font/skranji"
                     android:text="Harga"
                     android:textSize="17sp"

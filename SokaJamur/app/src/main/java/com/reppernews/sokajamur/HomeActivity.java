@@ -19,11 +19,21 @@ import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.Volley;
+import com.reppernews.sokajamur.app.AppController;
+
 import java.util.HashMap;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String TAG = AppController.class.getSimpleName();
     private SliderLayout sliderLayout;
+    private RequestQueue mRequestQueue;
+    private ImageLoader mImageLoader;
+    private AppController mInstance;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,7 +57,7 @@ public class HomeActivity extends AppCompatActivity
                     .setScaleType(BaseSliderView.ScaleType.Fit);
             textSliderView.bundle(new Bundle());
             textSliderView.getBundle()
-                    .putString("extra",name);
+                    .putString("extra", name);
             sliderLayout.addSlider(textSliderView);
 
         }

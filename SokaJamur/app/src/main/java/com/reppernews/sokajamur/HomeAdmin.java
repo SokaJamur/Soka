@@ -16,20 +16,61 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
+import com.daimajia.slider.library.Animations.DescriptionAnimation;
+import com.daimajia.slider.library.SliderLayout;
+import com.daimajia.slider.library.SliderTypes.BaseSliderView;
+import com.daimajia.slider.library.SliderTypes.TextSliderView;
+import com.reppernews.sokajamur.app.AppController;
+
+import java.util.HashMap;
+
 import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
 import static com.reppernews.sokajamur.LoginActivity.TAG_NOHP;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 
 public class HomeAdmin extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    public static final String TAG = AppController.class.getSimpleName();
+    private SliderLayout sliderLayout;
+    private RequestQueue mRequestQueue;
+    private ImageLoader mImageLoader;
+    private AppController mInstance;
     SharedPreferences sharedpreferences;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        sliderLayout = (SliderLayout) findViewById(R.id.slider);
+        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
+        file_maps.put("Jamur", R.drawable.jamurtiram);
+        file_maps.put("Menu Jamur 1", R.drawable.cripsyjamur);
+        file_maps.put("Menu Jamur 2", R.drawable.tumisjamur);
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+
+        for (String name : file_maps.keySet()) {
+            TextSliderView textSliderView = new TextSliderView(this);
+            // initialize a SliderLayout
+            textSliderView
+                    .description(name)
+                    .image(file_maps.get(name))
+
+                    .setScaleType(BaseSliderView.ScaleType.Fit);
+            textSliderView.bundle(new Bundle());
+            textSliderView.getBundle()
+                    .putString("extra", name);
+            sliderLayout.addSlider(textSliderView);
+
+        }
+        sliderLayout.setPresetTransformer(SliderLayout.Transformer.Accordion);
+        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
+        sliderLayout.setCustomAnimation(new DescriptionAnimation());
+        sliderLayout.setDuration(3000);
+
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

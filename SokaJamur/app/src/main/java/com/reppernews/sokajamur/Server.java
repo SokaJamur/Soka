@@ -5,5 +5,5 @@ package com.reppernews.sokajamur;
  */
 
 public class Server {
-    public static final String URL = "http://sokajamur.epizy.com/";
+    public static final String URL = "http://tifpolije16.com/";
 }

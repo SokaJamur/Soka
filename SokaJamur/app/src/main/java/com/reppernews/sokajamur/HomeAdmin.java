@@ -45,31 +45,9 @@ public class HomeAdmin extends AppCompatActivity
         setContentView(R.layout.activity_home_admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        sliderLayout = (SliderLayout) findViewById(R.id.slider);
-        HashMap<String, Integer> file_maps = new HashMap<String, Integer>();
-        file_maps.put("Jamur", R.drawable.jamurtiram);
-        file_maps.put("Menu Jamur 1", R.drawable.cripsyjamur);
-        file_maps.put("Menu Jamur 2", R.drawable.tumisjamur);
+
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
 
-        for (String name : file_maps.keySet()) {
-            TextSliderView textSliderView = new TextSliderView(this);
-            // initialize a SliderLayout
-            textSliderView
-                    .description(name)
-                    .image(file_maps.get(name))
-
-                    .setScaleType(BaseSliderView.ScaleType.Fit);
-            textSliderView.bundle(new Bundle());
-            textSliderView.getBundle()
-                    .putString("extra", name);
-            sliderLayout.addSlider(textSliderView);
-
-        }
-        sliderLayout.setPresetTransformer(SliderLayout.Transformer.Accordion);
-        sliderLayout.setPresetIndicator(SliderLayout.PresetIndicators.Center_Bottom);
-        sliderLayout.setCustomAnimation(new DescriptionAnimation());
-        sliderLayout.setDuration(3000);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

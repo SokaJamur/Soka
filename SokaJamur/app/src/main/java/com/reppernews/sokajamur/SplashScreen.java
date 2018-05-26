@@ -9,22 +9,40 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 import static com.reppernews.sokajamur.LoginActivity.session_status;
 
 public class SplashScreen extends AppCompatActivity{
     public final static String TAG_NOHP = "nohp";
     public final static String TAG_ID = "id";
-    SharedPreferences sharedpreferences;
+
+    public static String stokBaglog = "baglog";
+    public static String datasimpan = "datasimpan";
+    private String url = Server.URL + "ambildata.php";
+    String tag_json_obj = "json_obj_req";
+
+    SharedPreferences sharedpreferences, sharedPreferences2;
     Boolean session = false;
-    String id, nohp;
+    String id, nohp, baglog;
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        sharedPreferences2 = getSharedPreferences(datasimpan, Context.MODE_PRIVATE);
+        baglog = sharedPreferences2.getString(stokBaglog, null);
+
+                getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                        WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.splash_screen);
         session = sharedpreferences.getBoolean(session_status, false);
         id = sharedpreferences.getString(TAG_ID, null);

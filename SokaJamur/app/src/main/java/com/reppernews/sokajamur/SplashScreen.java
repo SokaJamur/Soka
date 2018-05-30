@@ -118,6 +118,9 @@ public class SplashScreen extends AppCompatActivity{
 
                     SharedPreferences.Editor editor = sharedpreferences2.edit();
                     editor.putString(TAG_ID_JAMUR, idjamur);
+                    editor.putString(TAG_STOK_JAMUR, stokjamur);
+                    editor.putString(TAG_NAMA_JAMUR, namajamur);
+                    editor.putString(TAG_HARGA_JAMUR, hargajamur);
                     editor.commit();
                 }
                 catch (JSONException e) {

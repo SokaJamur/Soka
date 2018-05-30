@@ -77,10 +77,11 @@ public class SplashScreen extends AppCompatActivity{
                     String namabaglog =  jsonObject.getString(TAG_NAMA_BAGLOG);
                     String hargabaglog =  jsonObject.getString(TAG_HARGA_BAGLOG);
 
-
-
                     SharedPreferences.Editor editor = sharedpreferences2.edit();
                     editor.putString(TAG_ID_BAGLOG, idbaglog);
+                    editor.putString(TAG_STOK_BAGLOG, stokbaglog);
+                    editor.putString(TAG_NAMA_BAGLOG, namabaglog);
+                    editor.putString(TAG_HARGA_BAGLOG, hargabaglog);
                     editor.commit();
                 }
                 catch (JSONException e) {

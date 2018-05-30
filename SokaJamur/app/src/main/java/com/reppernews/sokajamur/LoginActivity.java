@@ -152,7 +152,10 @@ public class LoginActivity extends AppCompatActivity {
                     if (success == 1) {
                         String nohp = jObj.getString(TAG_NOHP);
                         String id = jObj.getString(TAG_ID);
-                        String nohp1 = isianNo.getText().toString();
+                        String nama = jObj.getString(TAG_NAMA);
+                        String alamat = jObj.getString(TAG_ALAMAT);
+                        String email = jObj.getString(TAG_EMAIL);
+                        //String nohp = isianNo.getText().toString();
 
                         Log.e("Successfully Login!", jObj.toString());
 
@@ -162,14 +165,20 @@ public class LoginActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sharedpreferences.edit();
                         editor.putBoolean(session_status, true);
                         editor.putString(TAG_ID, id);
-                        editor.putString(TAG_NOHP, nohp1);
+                        editor.putString(TAG_NOHP, nohp);
+                        editor.putString(TAG_NAMA, nama);
+                        editor.putString(TAG_ALAMAT, alamat);
+                        editor.putString(TAG_EMAIL, email);
                         editor.commit();
 
                         // Memanggil main activity
-                        if(nohp1.equals("admin")){
+                        if(nohp.equals("admin")){
                             Intent intent = new Intent(LoginActivity.this, HomeAdmin.class);
                             intent.putExtra(TAG_ID, id);
-                            intent.putExtra(TAG_NOHP, nohp1);
+                            intent.putExtra(TAG_NOHP, nohp);
+                            editor.putString(TAG_NAMA, nama);
+                            editor.putString(TAG_ALAMAT, alamat);
+                            editor.putString(TAG_EMAIL, email);
                             finish();
                             startActivity(intent);
                         }

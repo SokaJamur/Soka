@@ -42,12 +42,15 @@ public class LoginActivity extends AppCompatActivity {
 
     public final static String TAG_NOHP = "nohp";
     public final static String TAG_ID = "id";
+    public final static String TAG_NAMA = "nama";
+    public final static String TAG_ALAMAT = "alamat";
+    public final static String TAG_EMAIL = "email";
 
     String tag_json_obj = "json_obj_req";
 
     SharedPreferences sharedpreferences;
     Boolean session = false;
-    String id, nohp;
+    String id, nohp, alamat, nama, email;
     public static final String my_shared_preferences = "my_shared_preferences";
     public static final String session_status = "session_status";
 
@@ -79,6 +82,9 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, HomeAdmin.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NOHP, nohp);
+                intent.putExtra(TAG_ALAMAT, alamat);
+                intent.putExtra(TAG_EMAIL, email);
+                intent.putExtra(TAG_NAMA, nama);
                 finish();
                 startActivity(intent);
             }
@@ -86,6 +92,9 @@ public class LoginActivity extends AppCompatActivity {
                 Intent intent = new Intent(LoginActivity.this, HomeUser.class);
                 intent.putExtra(TAG_ID, id);
                 intent.putExtra(TAG_NOHP, nohp);
+                intent.putExtra(TAG_ALAMAT, alamat);
+                intent.putExtra(TAG_EMAIL, email);
+                intent.putExtra(TAG_NAMA, nama);
                 finish();
                 startActivity(intent);
             }

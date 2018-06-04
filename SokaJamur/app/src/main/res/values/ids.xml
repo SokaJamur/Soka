@@ -6,4 +6,5 @@
     <item name="getNavigation3" type="id" />
     <item name="drawer" type="id" />
     <item name="nav" type="id" />
+    <item name="gambar" type="id" />
 </resources>

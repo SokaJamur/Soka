@@ -29,22 +29,15 @@ import static com.reppernews.sokajamur.LoginActivity.session_status;
 public class SplashScreen extends AppCompatActivity{
     public final static String TAG_NOHP = "nohp";
     public final static String TAG_ID = "id";
-    public final static String TAG_ID_BAGLOG = "idbaglog";
-    public final static String TAG_NAMA_BAGLOG = "namabaglog";
-    public final static String TAG_STOK_BAGLOG = "stokbaglog";
-    public final static String TAG_HARGA_BAGLOG = "hargabaglog";
 
-    public final static String TAG_ID_JAMUR = "idjamur";
-    public final static String TAG_NAMA_JAMUR = "namajamur";
-    public final static String TAG_STOK_JAMUR = "stokjamur";
-    public final static String TAG_HARGA_JAMUR = "hargajamur";
+
 
     public static String stokBaglog = "baglog";
     public static String stokJamur = "jamur";
     public static String datasimpan = "datasimpan";
-    private String url = Server.URL + "databaglog.php";
-    private String url2 = Server.URL + "datajamur.php";
-    String tag_json_obj = "json_obj_req";
+
+
+
     private StringRequest stringRequest;
     ConnectivityManager conMgr;
 
@@ -66,76 +59,12 @@ public class SplashScreen extends AppCompatActivity{
         session = sharedpreferences.getBoolean(session_status, false);
         id = sharedpreferences.getString(TAG_ID, null);
         nohp = sharedpreferences.getString(TAG_NOHP, null);
-        idbaglog = sharedpreferences2.getString(TAG_ID_BAGLOG, null);
-        namabaglog = sharedpreferences2.getString(TAG_NAMA_BAGLOG,null);
-        stokbaglog = sharedpreferences2.getString(TAG_STOK_BAGLOG, null);
-        hargabaglog = sharedpreferences2.getString(TAG_STOK_BAGLOG, null);
-        idjamur = sharedpreferences2.getString(TAG_ID_JAMUR, null);
-        namajamur = sharedpreferences2.getString(TAG_NAMA_JAMUR,null);
-        stokjamur = sharedpreferences2.getString(TAG_STOK_JAMUR, null);
-        hargajamur = sharedpreferences2.getString(TAG_STOK_JAMUR, null);
+
+
         conMgr = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-
-                    JSONObject jsonObject = new JSONObject(response);
-                    String idbaglog = jsonObject.getString(TAG_ID_BAGLOG);
-                    String stokbaglog =  jsonObject.getString(TAG_STOK_BAGLOG);
-                    String namabaglog =  jsonObject.getString(TAG_NAMA_BAGLOG);
-                    String hargabaglog =  jsonObject.getString(TAG_HARGA_BAGLOG);
-
-                    SharedPreferences.Editor editor = sharedpreferences2.edit();
-                    editor.putString(TAG_ID_BAGLOG, idbaglog);
-                    editor.putString(TAG_STOK_BAGLOG, stokbaglog);
-                    editor.putString(TAG_NAMA_BAGLOG, namabaglog);
-                    editor.putString(TAG_HARGA_BAGLOG, hargabaglog);
-                    editor.commit();
-                }
-                catch (JSONException e) {
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
-
-                    JSONObject jsonObject = new JSONObject(response);
-                    String idjamur = jsonObject.getString(TAG_ID_JAMUR);
-                    String stokjamur =  jsonObject.getString(TAG_STOK_JAMUR);
-                    String namajamur =  jsonObject.getString(TAG_NAMA_JAMUR);
-                    String hargajamur =  jsonObject.getString(TAG_HARGA_JAMUR);
 
 
-
-                    SharedPreferences.Editor editor = sharedpreferences2.edit();
-                    editor.putString(TAG_ID_JAMUR, idjamur);
-                    editor.putString(TAG_STOK_JAMUR, stokjamur);
-                    editor.putString(TAG_NAMA_JAMUR, namajamur);
-                    editor.putString(TAG_HARGA_JAMUR, hargajamur);
-                    editor.commit();
-                }
-                catch (JSONException e) {
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        Toast.makeText(getApplicationContext(), "toast"+idbaglog, Toast.LENGTH_LONG).show();
-        AppController.getInstance().addToRequestQueue(stringRequest, tag_json_obj);
-        Toast.makeText(getApplicationContext(), "toast"+idjamur, Toast.LENGTH_LONG).show();
-        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
 
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {

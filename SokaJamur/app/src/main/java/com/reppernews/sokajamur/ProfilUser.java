@@ -27,7 +27,7 @@ import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 public class ProfilUser extends AppCompatActivity {
     EditText namauser, alamatuser, emailuser, noHpuser, passworduser;
     SharedPreferences sharedpreferences;
-    String nohp;
+    String nohp, id, nama, alamat, email, password;
     ConnectivityManager conMgr;
     String tag_json_obj = "json_obj_req";
     int success;
@@ -56,6 +56,11 @@ public class ProfilUser extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
         nohp = sharedpreferences.getString(TAG_NOHP, null);
+        id = sharedpreferences.getString(TAG_ID, null);
+        nama = sharedpreferences.getString(TAG_NAMA, null);
+        alamat = sharedpreferences.getString(TAG_ALAMAT, null);
+        email = sharedpreferences.getString(TAG_EMAIL, null);
+        password = sharedpreferences.getString(TAG_PASSWORD, null);
 
         namauser = (EditText) findViewById(R.id.editText11);
         alamatuser = (EditText) findViewById(R.id.editText12);
@@ -64,6 +69,10 @@ public class ProfilUser extends AppCompatActivity {
         passworduser = (EditText) findViewById(R.id.editText15);
 
         noHpuser.setText(nohp);
+        namauser.setText(nama);
+        alamatuser.setText(alamat);
+        emailuser.setText(email);
+        passworduser.setText(password);
     }
 
 

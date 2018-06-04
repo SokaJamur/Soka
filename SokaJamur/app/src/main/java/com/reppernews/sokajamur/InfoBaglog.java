@@ -32,13 +32,16 @@ import java.util.Map;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ALAMAT;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
 import static com.reppernews.sokajamur.LoginActivity.TAG_NAMA;
+//import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 import static com.reppernews.sokajamur.LoginActivity.session_status;
-import static com.reppernews.sokajamur.SplashScreen.TAG_ID_BAGLOG;
-import static com.reppernews.sokajamur.SplashScreen.TAG_STOK_BAGLOG;
-import static com.reppernews.sokajamur.SplashScreen.my_shared_preferences2;
 
 public class InfoBaglog extends AppCompatActivity {
+    private String url2 = Server.URL + "databaglog.php";
+    public final static String TAG_ID_BAGLOG = "idbaglog";
+    public final static String TAG_NAMA_BAGLOG = "namabaglog";
+    public final static String TAG_STOK_BAGLOG = "stokbaglog";
+    public final static String TAG_HARGA_BAGLOG = "hargabaglog";
     private Spinner combobox2;
     private Button btpilih2, btpilih3, btpilih4;
     String tag_json_obj = "json_obj_req";
@@ -48,17 +51,22 @@ public class InfoBaglog extends AppCompatActivity {
     public final static String TAG_NOHP = "nohp";
     SharedPreferences sharedPreferences, sharedPreferences2;
     Boolean session = false;
-    String nohp, idbaglog, stokbaglog, nama, alamat, jumlah , iduser;
-
+    public static final String my_shared_preferences2 = "my_shared_preferences2";
+    String nohp, idbaglog, stokbaglog, nama, alamat, jumlah , iduser, stokbaru;
+    private static final String TAG_SUCCESS = "success";
     TextView txtStok, txtTotal;
     EditText txtNama, txtNohp, txtAlamat, txtJumlah;
-
+    int success1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_baglog);
         final String[] isispinner = new String[1];
+        //idbaglog = sharedPreferences2.getString(TAG_ID_BAGLOG, null);
+        //namabaglog = sharedPreferences2.getString(TAG_NAMA_BAGLOG,null);
+        //stokbaglog = sharedPreferences2.getString(TAG_STOK_BAGLOG, null);
+        //hargabaglog = sharedPreferences2.getString(TAG_STOK_BAGLOG, null);
         combobox2=(Spinner) findViewById(R.id.cbBox2);
         txtNama=(EditText)findViewById(R.id.editText);
         txtTotal=(TextView)findViewById(R.id.textView14);
@@ -82,12 +90,41 @@ public class InfoBaglog extends AppCompatActivity {
         alamat = sharedPreferences.getString(TAG_ALAMAT, null);
         idbaglog = sharedPreferences2.getString(TAG_ID_BAGLOG, null);
         stokbaglog = sharedPreferences2.getString(TAG_STOK_BAGLOG, null);
-        txtStok.setText(stokbaglog);
         txtNama.setText(nama);
         txtNohp.setText(nohp);
         txtAlamat.setText(alamat);
         stokawal = Integer.parseInt(stokbaglog);
         harga = 2500;
+        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+                    String idbaglog = jsonObject.getString(TAG_ID_BAGLOG);
+                    String stokbaglog =  jsonObject.getString(TAG_STOK_BAGLOG);
+                    String namabaglog =  jsonObject.getString(TAG_NAMA_BAGLOG);
+                    String hargabaglog =  jsonObject.getString(TAG_HARGA_BAGLOG);
+
+                    SharedPreferences.Editor editor = sharedPreferences2.edit();
+                    editor.putString(TAG_ID_BAGLOG, idbaglog);
+                    editor.putString(TAG_STOK_BAGLOG, stokbaglog);
+                    editor.putString(TAG_NAMA_BAGLOG, namabaglog);
+                    editor.putString(TAG_HARGA_BAGLOG, hargabaglog);
+                    editor.commit();
+                }
+                catch (JSONException e) {
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        Toast.makeText(getApplicationContext(), "toast"+idbaglog, Toast.LENGTH_LONG).show();
+        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
+        txtStok.setText(stokbaglog);
 
         combobox2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -130,6 +167,10 @@ public class InfoBaglog extends AppCompatActivity {
                  final String spiner = isispinner[0];
                  final String total = txtTotal.getText().toString();
                  inputpesanan(iduser1,jumlah1,spiner,total);
+                 Intent intent = new Intent(getApplicationContext(), PesananSaya.class);
+                 finish();
+                 startActivity(intent);
+
 
              }
         });
@@ -168,7 +209,19 @@ public class InfoBaglog extends AppCompatActivity {
 
                 try {
                     JSONObject jObj = new JSONObject(response);
-                    // Check for error node in json
+                    success1 = jObj.getInt(TAG_SUCCESS);
+                    stokbaru = jObj.getString(TAG_STOK_BAGLOG);
+                    Toast.makeText(getApplicationContext(),"sukses tah"+success1,Toast.LENGTH_LONG).show();
+                    if(success1 == 1){
+                        SharedPreferences.Editor editor = sharedPreferences2.edit();
+                        editor.putString(TAG_STOK_BAGLOG, stokbaru);
+                        editor.commit();
+                        Toast.makeText(getApplicationContext(),"Pesan Berhasil", Toast.LENGTH_LONG).show();
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(),"Gagal gan", Toast.LENGTH_LONG).show();
+                    }
+
 
                 } catch (JSONException e) {
                     // JSON error

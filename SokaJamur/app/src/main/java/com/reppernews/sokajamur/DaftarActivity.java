@@ -60,7 +60,7 @@ public class DaftarActivity extends AppCompatActivity {
            isianNo = (EditText) findViewById(R.id.isianNo);
            isianEmail = (EditText) findViewById(R.id.isianEmail);
            isianPass = (EditText) findViewById(R.id.isianPass);
-        Button btndaftar = (Button) findViewById(R.id.btndaftar);
+           Button btndaftar = (Button) findViewById(R.id.btndaftar);
 
 
         btndaftar.setOnClickListener(new View.OnClickListener() {
@@ -79,8 +79,6 @@ public class DaftarActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "No Internet Connection", Toast.LENGTH_SHORT).show();
                 }
 
-                //Intent intent = new Intent(getApplicationContext(),HomeUser.class);
-                //startActivity(intent);
             }
         });
 

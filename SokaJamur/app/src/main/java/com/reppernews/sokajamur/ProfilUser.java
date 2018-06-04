@@ -1,33 +1,19 @@
 package com.reppernews.sokajamur;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
 import android.widget.Toast;
-
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.reppernews.sokajamur.app.AppController;
-
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.HashMap;
-import java.util.Map;
 
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 
 public class ProfilUser extends AppCompatActivity {
     EditText namauser, alamatuser, emailuser, noHpuser, passworduser;
     SharedPreferences sharedpreferences;
-    String nohp;
+    String nohp, nama;
     ConnectivityManager conMgr;
     String tag_json_obj = "json_obj_req";
     int success;
@@ -56,6 +42,7 @@ public class ProfilUser extends AppCompatActivity {
 
         sharedpreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
         nohp = sharedpreferences.getString(TAG_NOHP, null);
+        nama = sharedpreferences.getString(TAG_NAMA, null);
 
         namauser = (EditText) findViewById(R.id.editText11);
         alamatuser = (EditText) findViewById(R.id.editText12);
@@ -64,6 +51,7 @@ public class ProfilUser extends AppCompatActivity {
         passworduser = (EditText) findViewById(R.id.editText15);
 
         noHpuser.setText(nohp);
+        namauser.setText(nama);
     }
 
 

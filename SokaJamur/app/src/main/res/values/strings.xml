@@ -24,5 +24,6 @@
         <item>Setelah Dikirim</item>
     </string-array>
     <string name="title_activity_home_admin">HomeAdmin</string>
+    <string name="closeDrawer" />
 
 </resources>

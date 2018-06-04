@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="listView" type="id" />
+    <item name="navigation1" type="id" />
+    <item name="navigation3" type="id" />
+    <item name="getNavigation3" type="id" />
+    <item name="drawer" type="id" />
+    <item name="nav" type="id" />
+    <item name="gambar" type="id" />
+</resources>

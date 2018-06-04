@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
     private String JSON_STRING;
     public static final String TAG_JSON_ARRAY = "result";
     public static final String TAG_ID_ARTIKEL = "id_artikel";
@@ -62,6 +62,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         listView = (ListView) findViewById(R.id.listView);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getJSON();
@@ -99,6 +100,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        listView.setOnItemClickListener(this);
     }
 
 
@@ -195,7 +197,17 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         GetJSON gj = new GetJSON();
         gj.execute();
     }
-        public class MyAdapter extends SimpleAdapter {
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(HomeActivity.this, InfoBaglog.class);
+//        HashMap<String,String> map=(HashMap)parent.getItemAtPosition(position);
+//        String id_artikel = map.get(TAG_ID_ARTIKEL).toString();
+//        intent.putExtra(TAG_ID_ARTIKEL,id_artikel);
+        startActivity(intent);
+    }
+
+    public class MyAdapter extends SimpleAdapter {
 
             public MyAdapter(Context context, List<? extends Map<String, ?>> data, int resource, String[] from, int[] to){
                 super(context, data, resource, from, to);

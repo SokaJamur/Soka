@@ -30,14 +30,10 @@ public class DaftarActivity extends AppCompatActivity {
     int success;
     ConnectivityManager conMgr;
     Intent intent;
-
     private String url = Server.URL + "register.php";
-
     private static final String TAG = DaftarActivity.class.getSimpleName();
-
     private static final String TAG_SUCCESS = "success";
     private static final String TAG_MESSAGE = "message";
-
     String tag_json_obj = "json_obj_req";
 
     @Override

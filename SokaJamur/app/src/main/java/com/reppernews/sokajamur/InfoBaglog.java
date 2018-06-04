@@ -1,13 +1,10 @@
 package com.reppernews.sokajamur;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -32,13 +29,15 @@ import java.util.Map;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ALAMAT;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
 import static com.reppernews.sokajamur.LoginActivity.TAG_NAMA;
-//import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 import static com.reppernews.sokajamur.LoginActivity.session_status;
+
+//import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 
 public class InfoBaglog extends AppCompatActivity {
     private String url2 = Server.URL + "databaglog.php";
     public final static String TAG_ID_BAGLOG = "idbaglog";
+    public static StringRequest stringRequest2;
     public final static String TAG_NAMA_BAGLOG = "namabaglog";
     public final static String TAG_STOK_BAGLOG = "stokbaglog";
     public final static String TAG_HARGA_BAGLOG = "hargabaglog";
@@ -85,7 +84,6 @@ public class InfoBaglog extends AppCompatActivity {
         session = sharedPreferences.getBoolean(session_status, false);
         nohp = sharedPreferences.getString(TAG_NOHP, null);
         iduser = sharedPreferences.getString(TAG_ID, null);
-        idbaglog = sharedPreferences2.getString(TAG_ID_BAGLOG, null );
         nama = sharedPreferences.getString(TAG_NAMA, null);
         alamat = sharedPreferences.getString(TAG_ALAMAT, null);
         idbaglog = sharedPreferences2.getString(TAG_ID_BAGLOG, null);
@@ -93,18 +91,18 @@ public class InfoBaglog extends AppCompatActivity {
         txtNama.setText(nama);
         txtNohp.setText(nohp);
         txtAlamat.setText(alamat);
-        stokawal = Integer.parseInt(stokbaglog);
+        //stokawal = Integer.parseInt(stokbaglog);
         harga = 2500;
-        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+        stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
 
                     JSONObject jsonObject = new JSONObject(response);
                     String idbaglog = jsonObject.getString(TAG_ID_BAGLOG);
-                    String stokbaglog =  jsonObject.getString(TAG_STOK_BAGLOG);
-                    String namabaglog =  jsonObject.getString(TAG_NAMA_BAGLOG);
-                    String hargabaglog =  jsonObject.getString(TAG_HARGA_BAGLOG);
+                    String stokbaglog = jsonObject.getString(TAG_STOK_BAGLOG);
+                    String namabaglog = jsonObject.getString(TAG_NAMA_BAGLOG);
+                    String hargabaglog = jsonObject.getString(TAG_HARGA_BAGLOG);
 
                     SharedPreferences.Editor editor = sharedPreferences2.edit();
                     editor.putString(TAG_ID_BAGLOG, idbaglog);

@@ -5,7 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,20 +14,17 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.ImageLoader;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-
-import com.android.volley.RequestQueue;
-import com.android.volley.toolbox.ImageLoader;
 import com.reppernews.sokajamur.app.AppController;
 import com.squareup.picasso.Picasso;
 
@@ -138,6 +134,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
     private void showEmployee(){
         JSONObject jsonObject = null;
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();

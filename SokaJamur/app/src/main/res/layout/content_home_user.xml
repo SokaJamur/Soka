@@ -47,59 +47,19 @@
             app:layout_constraintTop_toBottomOf="@+id/slider"
             app:layout_constraintVertical_bias="0.003" />
 
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="157dp"
-            android:layout_height="94dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:fontFamily="@font/skranji"
-            android:text="Penyakit Jamur"
-            android:textColor="#2d5a80"
-            app:layout_constraintBottom_toBottomOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.08"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slider"
-            app:layout_constraintVertical_bias="0.844" />
+        <RelativeLayout
+            android:layout_width="350dp"
+            android:layout_height="550dp">
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="157dp"
-            android:layout_height="94dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Budidaya Jamur"
-            android:textColor="#2d5a80"
-            android:fontFamily="@font/skranji"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.962"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slider"
-            app:layout_constraintVertical_bias="0.342" />
+            <ListView
+                android:id="@+id/listView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                />
 
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="157dp"
-            android:layout_height="94dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:text="Baglog Jamur"
-            android:textColor="#2d5a80"
-            android:fontFamily="@font/skranji"
-            app:layout_constraintBottom_toTopOf="@+id/textView6"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.962"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/slider"
-            app:layout_constraintVertical_bias="1.0" />
-
+        </RelativeLayout>
     </LinearLayout>
 </ScrollView>

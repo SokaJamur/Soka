@@ -41,15 +41,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.reppernews.sokajamur.DetailArtikelUser.TAG_ISI;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ALAMAT;
 import static com.reppernews.sokajamur.LoginActivity.TAG_EMAIL;
+import static com.reppernews.sokajamur.DetailArtikelUser.TAG_ID_ARTIKEL2;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
 import static com.reppernews.sokajamur.LoginActivity.TAG_NAMA;
 import static com.reppernews.sokajamur.LoginActivity.TAG_NOHP;
 import static com.reppernews.sokajamur.LoginActivity.TAG_PASSWORD;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
-
-
 
 public class HomeUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
 
@@ -58,6 +58,7 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
     public static final String TAG_ID_ARTIKEL = "id_artikel";
     public static final String TAG_GAMBAR = "gambar";
     public static final String TAG_JUDUL = "judul";
+    public static final String TAG_ISI = "isi";
     public static final String URL_GET_ALL = "http://tifpolije16.com/tampilArtikel.php/";
 
     public static final String TAG = AppController.class.getSimpleName();
@@ -179,10 +180,12 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
                 String id_artikel = jo.getString(TAG_ID_ARTIKEL);
                 String gambar ="http://tifpolije16.com/soka/assets/img/" +jo.getString(TAG_GAMBAR);
                 String judul = jo.getString(TAG_JUDUL);
+                String isi = jo.getString(TAG_ISI);
                 HashMap<String,String> employees = new HashMap<>();
                 employees.put(TAG_ID_ARTIKEL,id_artikel);
                 employees.put(TAG_GAMBAR,gambar);
                 employees.put(TAG_JUDUL,judul);
+                employees.put(TAG_ISI,isi);
                 list.add(employees);
             }
 
@@ -192,8 +195,8 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
 
         ListAdapter adapter = new HomeUser.MyAdapter(
                 HomeUser.this, list, R.layout.list_row,
-                new String[]{TAG_GAMBAR,TAG_JUDUL},
-                new int[]{R.id.gambar, R.id.judul});
+                new String[]{TAG_GAMBAR,TAG_JUDUL,TAG_ISI},
+                new int[]{R.id.gambar, R.id.judul, R.id.isi});
 
         listView.setAdapter(adapter);
     }
@@ -230,10 +233,11 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(HomeUser.this, InfoBaglog.class);
-//        HashMap<String,String> map=(HashMap)parent.getItemAtPosition(position);
-//        String id_artikel = map.get(TAG_ID_ARTIKEL).toString();
-//        intent.putExtra(TAG_ID_ARTIKEL,id_artikel);
+        Intent intent = new Intent(HomeUser.this, DetailArtikelUser.class);
+        Bundle b = new Bundle();
+        HashMap<String,String> map=(HashMap)parent.getItemAtPosition(position);
+        String id_artikel = map.get(TAG_ID_ARTIKEL).toString();
+        intent.putExtra(TAG_ID_ARTIKEL,id_artikel);
         startActivity(intent);
     }
 

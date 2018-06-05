@@ -1,82 +1,64 @@
 package com.reppernews.sokajamur;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.util.Log;
-import android.view.MenuItem;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.reppernews.sokajamur.app.AppController;
-import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Handler;
 
-import static com.reppernews.sokajamur.HomeActivity.TAG_ID_ARTIKEL;
-import static com.reppernews.sokajamur.Artikel.TAG_JUDUL;
-import static com.reppernews.sokajamur.Artikel.TAG_ISI;
-import static com.reppernews.sokajamur.PesananSaya.TAG_ID_PESAN;
-import static com.reppernews.sokajamur.SplashScreen.TAG_ID;
+import static com.reppernews.sokajamur.HomeUser.TAG_ID_ARTIKEL;
 
-public abstract class Artikel extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class DetailArtikelUser extends AppCompatActivity {
     TextView txtJudul, txtIsi;
     private String url = Server.URL + "detailArtikel.php";
     String tag_json_obj = "json_obj_req";
     public static final String TAG_ID_ARTIKEL2 = "id_artikel";
     public static final String TAG_JUDUL= "judul";
     public static final String TAG_ISI= "isi";
-    public static final String TAG_GAMBAR= "gambar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_artikel);
+        setContentView(R.layout.activity_detail_artikel_user);
         txtJudul = (TextView) findViewById(R.id.judul);
         txtIsi = (TextView) findViewById(R.id.isi);
         Bundle b = getIntent().getExtras();
         String id_artikel = b.getString(TAG_ID_ARTIKEL);
         Toast.makeText(getApplicationContext(), "ini id artikel" + id_artikel, Toast.LENGTH_LONG).show();
-        detailartikel(id_artikel);
+        detailartikeluser(id_artikel);
 
     }
 
-    public void detailartikel(final String id_artikel) {
+    public void detailartikeluser(final String id_artikel) {
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
-
 
                 try {
                     JSONObject jObj = new JSONObject(response);
                     String id_artikel = jObj.getString(TAG_ID_ARTIKEL2);
                     String judul = jObj.getString(TAG_JUDUL);
                     String isi = jObj.getString(TAG_ISI);
-                    String gambar = jObj.getString(TAG_GAMBAR);
 
                     txtJudul.setText(judul);
+                    txtIsi.setText(isi);
+                    //String nama = jObj.get(TAG_ID_NAMA);
 
                 } catch (JSONException e) {
                     // JSON error
@@ -99,7 +81,6 @@ public abstract class Artikel extends AppCompatActivity implements SwipeRefreshL
                 return params;
             }
         };
-
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
     }
@@ -107,7 +88,7 @@ public abstract class Artikel extends AppCompatActivity implements SwipeRefreshL
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+        Intent intent = new Intent(getApplicationContext(), HomeUser.class);
         finish();
         startActivity(intent);
     }

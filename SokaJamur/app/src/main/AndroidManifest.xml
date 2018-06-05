@@ -49,12 +49,13 @@
         <activity
             android:name=".HomeAdmin"
             android:label="@string/title_activity_home_admin"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AdminBarang" />
-        <activity android:name=".Artikel"></activity>
-        <activity android:name=".DetailArtikel"></activity>
+        <activity android:name=".DetailArtikel" />
+        <activity
+            android:name=".DetailArtikelUser"
+            android:label="@string/title_activity_detail_artikel_user"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

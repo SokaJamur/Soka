@@ -32,7 +32,6 @@ public class DetailArtikel extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_pesanan);
         setContentView(R.layout.activity_detail_artikel);
         txtJudul = (TextView) findViewById(R.id.judul);
         txtIsi = (TextView) findViewById(R.id.isi);
@@ -56,6 +55,7 @@ public class DetailArtikel extends AppCompatActivity {
                     String isi = jObj.getString(TAG_ISI);
 
                     txtJudul.setText(judul);
+                    txtIsi.setText(isi);
                     //String nama = jObj.get(TAG_ID_NAMA);
 
 

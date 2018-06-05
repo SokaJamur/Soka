@@ -138,11 +138,8 @@ public class InfoBaglog extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(session){
-                    if(txtJumlah.getText() == null){
+                    if(txtJumlah.getText().toString().length() == 0){
                         Toast.makeText(getApplicationContext(), "Jumlah Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
-                        btpilih3.setVisibility(View.GONE);
-                        btpilih4.setVisibility(View.GONE);
-                        btpilih2.setVisibility(View.VISIBLE);
                     }
                     else {
                         hasilHitung();

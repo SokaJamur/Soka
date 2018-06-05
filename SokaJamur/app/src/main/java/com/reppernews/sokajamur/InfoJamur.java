@@ -25,6 +25,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.text.InputType;
 
 import static com.reppernews.sokajamur.InfoBaglog.TAG_ID_BAGLOG;
 import static com.reppernews.sokajamur.InfoBaglog.TAG_STOK_BAGLOG;

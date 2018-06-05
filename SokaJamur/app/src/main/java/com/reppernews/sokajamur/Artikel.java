@@ -21,4 +21,5 @@ public class Artikel extends AppCompatActivity{
         setContentView(R.layout.activity_artikel);
     }
 
+
 }

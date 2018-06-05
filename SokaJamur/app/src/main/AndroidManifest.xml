@@ -61,7 +61,8 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity android:name=".AdminBarang"/>
-
+        <activity android:name=".Artikel">
+        </activity>
     </application>
 
 </manifest>

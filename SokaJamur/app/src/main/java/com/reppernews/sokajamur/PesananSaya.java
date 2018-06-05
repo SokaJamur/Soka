@@ -2,27 +2,21 @@ package com.reppernews.sokajamur;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
+import android.widget.AdapterView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
-import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -33,13 +27,14 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class PesananSaya extends AppCompatActivity {
+public class PesananSaya extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private RecyclerView lvhape;
     public ListView listView;
     private String JSON_STRING;
     public static final String TAG_JSON_ARRAY = "result";
     private RequestQueue requestQueue;
     public static final String TAG_TOTAL = "total";
+    public static final String TAG_ID_PESAN = "id_pesan";
     public static final String TAG_NAMA_BARANG = "nama_barang";
     private StringRequest stringRequest;
     private String url = Server.URL + "ambilpesanan.php";
@@ -52,6 +47,7 @@ public class PesananSaya extends AppCompatActivity {
         setContentView(R.layout.activity_pesanan_saya);
         listView = (ListView) findViewById(R.id.listView);
         getJSON();
+        listView.setOnItemClickListener(this);
 
     }
     private void showEmployee(){
@@ -64,10 +60,11 @@ public class PesananSaya extends AppCompatActivity {
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
                 String total = jo.getString(TAG_TOTAL);
+                String id_pesan = jo.getString(TAG_ID_PESAN);
                 //String gambar ="http://tifpolije16.com/soka/assests/img/" +jo.getString(TAG_GAMBAR);
                 String nama_barang = jo.getString(TAG_NAMA_BARANG);
                 HashMap<String,String> employees = new HashMap<>();
-                //employees.put(TAG_ID_ARTIKEL,id_artikel);
+                employees.put(TAG_ID_PESAN,id_pesan);
                 employees.put(TAG_TOTAL, total);
                 employees.put(TAG_NAMA_BARANG,nama_barang);
                 list.add(employees);
@@ -112,6 +109,17 @@ public class PesananSaya extends AppCompatActivity {
         }
         GetJSON gj = new GetJSON();
         gj.execute();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        Intent intent = new Intent(PesananSaya.this, DetailPesanan.class);
+        Bundle b = new Bundle();
+        HashMap<String,String> map=(HashMap)parent.getItemAtPosition(position);
+        String id_pesan = map.get(TAG_ID_PESAN).toString();
+        intent.putExtra(TAG_ID_PESAN,id_pesan);
+        startActivity(intent);
+        Toast.makeText(getApplicationContext(), "ini id"+id_pesan, Toast.LENGTH_LONG).show();
     }
     public class MyAdapter extends SimpleAdapter {
 

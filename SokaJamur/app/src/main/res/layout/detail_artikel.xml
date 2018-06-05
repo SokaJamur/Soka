@@ -14,6 +14,15 @@
             android:orientation="vertical"
             android:padding="16dp" >
 
+            <ImageView
+                android:id="@+id/gambar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="50dp"
+                android:layout_marginTop="50dp"
+                android:scaleType="fitXY" />
+
             <TextView
                 android:id="@+id/judul_artikel"
                 android:layout_width="match_parent"
@@ -25,14 +34,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
-            <com.android.volley.toolbox.NetworkImageView
-                android:id="@+id/gambar_artikel"
-                android:layout_gravity="center"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:scaleType="fitXY" />
 
             <TextView
                 android:id="@+id/isi_artikel"

@@ -25,6 +25,7 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
+import android.text.InputType;
 
 import static com.reppernews.sokajamur.InfoBaglog.TAG_ID_BAGLOG;
 import static com.reppernews.sokajamur.InfoBaglog.TAG_STOK_BAGLOG;
@@ -119,15 +120,15 @@ public class InfoJamur extends AppCompatActivity {
             }
         });
 
-        Toast.makeText(getApplicationContext(), "toast" + idjamur, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "toast" + idjamur, Toast.LENGTH_LONG).show();
         AppController.getInstance().addToRequestQueue(stringRequest, tag_json_obj);
 
-        Toast.makeText(getApplicationContext(), "tes" + idjamur, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "tes" + idjamur, Toast.LENGTH_LONG).show();
         combobox.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Selected " + adapter.getItem(position), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Selected " + adapter.getItem(position), Toast.LENGTH_SHORT).show();
                 isispinner[0] = String.valueOf(adapter.getItem(position));
             }
 
@@ -140,11 +141,14 @@ public class InfoJamur extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (session) {
-                    hasilHitung();
-                    btpilih3.setVisibility(View.VISIBLE);
-                    btpilih4.setVisibility(View.VISIBLE);
-                    btpilih2.setVisibility(View.GONE);
-
+                    if(txtJumlah.getText().toString().length() == 0){
+                        Toast.makeText(getApplicationContext(), "Jumlah Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
+                    }else {
+                        hasilHitung();
+                        btpilih3.setVisibility(View.VISIBLE);
+                        btpilih4.setVisibility(View.VISIBLE);
+                        btpilih2.setVisibility(View.GONE);
+                    }
 
                 } else {
                     Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
@@ -163,13 +167,13 @@ public class InfoJamur extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 final String iduser1 = String.valueOf(iduser).toString();
-                Toast.makeText(getApplicationContext(),"iduser1 "+iduser1, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"iduser1 "+iduser1, Toast.LENGTH_LONG).show();
                 final String jumlah1 = txtJumlah.getText().toString();
-                Toast.makeText(getApplicationContext(),"jumlah1 "+jumlah1, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"jumlah1 "+jumlah1, Toast.LENGTH_LONG).show();
                 final String spiner = isispinner[0];
-                Toast.makeText(getApplicationContext(),"spiner "+spiner, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"spiner "+spiner, Toast.LENGTH_LONG).show();
                 final String total = txtTotal.getText().toString();
-                Toast.makeText(getApplicationContext(),"total "+total, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(),"total "+total, Toast.LENGTH_LONG).show();
                 inputpesanan(iduser1, jumlah1, spiner, total);
 
 
@@ -209,14 +213,14 @@ public class InfoJamur extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     success1 = jObj.getInt(TAG_SUCCESS);
                     stokbaru = jObj.getString(TAG_STOK_BAGLOG);
-                    Toast.makeText(getApplicationContext(), "sukses tah" + success1, Toast.LENGTH_LONG).show();
+                    //Toast.makeText(getApplicationContext(), "sukses tah" + success1, Toast.LENGTH_LONG).show();
                     if (success1 == 1) {
                         SharedPreferences.Editor editor = sharedpreferences2.edit();
                         editor.putString(TAG_STOK_BAGLOG, stokbaru);
                         editor.commit();
-                        Toast.makeText(getApplicationContext(), "Pesan Berhasil", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Pesan Berhasil", Toast.LENGTH_LONG).show();
                     } else {
-                        Toast.makeText(getApplicationContext(), "Gagal gan", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "Gagal gan", Toast.LENGTH_LONG).show();
                     }
 
 

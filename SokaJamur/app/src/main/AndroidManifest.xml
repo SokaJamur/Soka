@@ -48,10 +48,12 @@
         <activity android:name=".InfoBaglog"></activity>
         <activity
             android:name=".HomeAdmin"
-            android:label="@string/title_activity_home_admin"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".AdminBarang" />
-        <activity android:name=".DetailPesanan"></activity>
+            android:label="@string/title_activity_home_admin"></activity>
+
+        <activity android:name=".AdminBarang"/>
+        <activity android:name=".Artikel">
+        </activity>
+
     </application>
 
 </manifest>

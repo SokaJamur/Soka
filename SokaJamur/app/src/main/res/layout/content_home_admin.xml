@@ -9,4 +9,18 @@
     tools:context="com.reppernews.sokajamur.HomeAdmin"
     tools:showIn="@layout/app_bar_home_admin">
 
+    <RelativeLayout
+        android:layout_width="350dp"
+        android:layout_height="550dp">
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            />
+
+    </RelativeLayout>
 </android.support.constraint.ConstraintLayout>

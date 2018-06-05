@@ -46,19 +46,19 @@ public class AdminBarang extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_barang);
         btnTambahBaglog = (Button) findViewById(R.id.btntambah);
-        jenisJamur = (EditText)findViewById(R.id.editText10);
-        stokJamur = (EditText)findViewById(R.id.editText17);
-        hargaJamur = (EditText)findViewById(R.id.editText18);
-        btnTambahJamur = (Button)findViewById(R.id.button3);
-        jenisBaglog = (EditText)findViewById(R.id.editText11);
-        stokBaglog = (EditText)findViewById(R.id.editText19);
-        hargaBaglog = (EditText)findViewById(R.id.editText20);
-        btnJamur = (Button)findViewById(R.id.button3);
-        btnSimpanJamur = (Button)findViewById(R.id.button5);
-        btnBatalJamur = (Button)findViewById(R.id.button6);
-        btnBaglog = (Button)findViewById(R.id.button4);
-        btnSimpanBaglog = (Button)findViewById(R.id.button7);
-        btnBatalBaglog = (Button)findViewById(R.id.button8);
+        jenisJamur = (EditText) findViewById(R.id.editText10);
+        stokJamur = (EditText) findViewById(R.id.editText17);
+        hargaJamur = (EditText) findViewById(R.id.editText18);
+        btnTambahJamur = (Button) findViewById(R.id.button3);
+        jenisBaglog = (EditText) findViewById(R.id.editText11);
+        stokBaglog = (EditText) findViewById(R.id.editText19);
+        hargaBaglog = (EditText) findViewById(R.id.editText20);
+        btnJamur = (Button) findViewById(R.id.button3);
+        btnSimpanJamur = (Button) findViewById(R.id.button5);
+        btnBatalJamur = (Button) findViewById(R.id.button6);
+        btnBaglog = (Button) findViewById(R.id.button4);
+        btnSimpanBaglog = (Button) findViewById(R.id.button7);
+        btnBatalBaglog = (Button) findViewById(R.id.button8);
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override
@@ -103,8 +103,7 @@ public class AdminBarang extends AppCompatActivity {
                     editor.putString(TAG_NAMA_BAGLOG, namabaglog);
                     editor.putString(TAG_HARGA_BAGLOG, hargabaglog);
                     editor.commit();
-                }
-                catch (JSONException e) {
+                } catch (JSONException e) {
                 }
             }
         }, new Response.ErrorListener() {
@@ -123,7 +122,7 @@ public class AdminBarang extends AppCompatActivity {
         hargajamur = sharedpreferences2.getString(TAG_HARGA_JAMUR, null);
         stokbaglog = sharedpreferences2.getString(TAG_STOK_BAGLOG, null);
         hargabaglog = sharedpreferences2.getString(TAG_HARGA_BAGLOG, null);
-        namabaglog = sharedpreferences2.getString(TAG_NAMA_BAGLOG,null);
+        namabaglog = sharedpreferences2.getString(TAG_NAMA_BAGLOG, null);
 
         jenisJamur.setText(namajamur);
         stokJamur.setText(stokjamur);
@@ -147,7 +146,7 @@ public class AdminBarang extends AppCompatActivity {
         btnBaglog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                stokJamur.setEnabled(true);
+                stokBaglog.setEnabled(true);
                 btnSimpanBaglog.setVisibility(View.VISIBLE);
                 btnBatalBaglog.setVisibility(View.VISIBLE);
                 btnBaglog.setVisibility(View.GONE);
@@ -183,14 +182,26 @@ public class AdminBarang extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String idJamur = String.valueOf(idjamur).toString();
-                Toast.makeText(getApplicationContext(),"ini id jamur"+idJamur, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ini id jamur" + idJamur, Toast.LENGTH_LONG).show();
                 String stokjamur = stokJamur.getText().toString();
-                Toast.makeText(getApplicationContext(),"ini stok jamur"+stokjamur, Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "ini stok jamur" + stokjamur, Toast.LENGTH_LONG).show();
                 updateJamur(idJamur, stokjamur);
+            }
+        });
+        btnSimpanBaglog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String idBaglog = String.valueOf(idbaglog).toString();
+                Toast.makeText(getApplicationContext(), "ini id baglog" + idBaglog, Toast.LENGTH_LONG).show();
+                String stokbaglog = stokBaglog.getText().toString();
+                Toast.makeText(getApplicationContext(), "ini stok Baglog" + stokbaglog, Toast.LENGTH_LONG).show();
+                updateBaglog(idBaglog, stokbaglog);
             }
         });
 
     }
+
+
     public void updateJamur(final String idJamur, final String stokjamur) {
         StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
             @Override
@@ -222,6 +233,37 @@ public class AdminBarang extends AppCompatActivity {
         AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
     }
 
+    public void updateBaglog(final String idBaglog, final String stokbaglog) {
+        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                } catch (JSONException e) {
+
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }){
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("idbarang", idBaglog);
+                params.put("stokbaru", stokbaglog);
+                //params.put("confirm_password", confirm_password);
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
+    }
 
 }
 

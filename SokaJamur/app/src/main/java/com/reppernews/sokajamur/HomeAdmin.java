@@ -4,30 +4,25 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
 import android.view.MenuItem;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
-import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
-import com.daimajia.slider.library.SliderTypes.BaseSliderView;
-import com.daimajia.slider.library.SliderTypes.TextSliderView;
 import com.reppernews.sokajamur.app.AppController;
 
-import java.util.HashMap;
-
+import static com.reppernews.sokajamur.LoginActivity.TAG_ALAMAT;
+import static com.reppernews.sokajamur.LoginActivity.TAG_EMAIL;
 import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
+import static com.reppernews.sokajamur.LoginActivity.TAG_NAMA;
 import static com.reppernews.sokajamur.LoginActivity.TAG_NOHP;
+import static com.reppernews.sokajamur.LoginActivity.TAG_PASSWORD;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 
 public class HomeAdmin extends AppCompatActivity
@@ -78,14 +73,15 @@ public class HomeAdmin extends AppCompatActivity
         if (id == R.id.nav_infoBarangadmin) {
             Intent intent = new Intent(getApplicationContext(),AdminBarang.class);
             startActivity(intent);
-        } else if (id == R.id.nav_pesananPembeli) {
-            Intent intent = new Intent(getApplicationContext(),PesananPembeli.class);
-            startActivity(intent);
         } else if (id == R.id.nav_logoutAdmin) {
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putBoolean(LoginActivity.session_status, false);
             editor.putString(TAG_ID, null);
             editor.putString(TAG_NOHP, null);
+            editor.putString(TAG_NAMA, null);
+            editor.putString(TAG_ALAMAT, null);
+            editor.putString(TAG_EMAIL, null);
+            editor.putString(TAG_PASSWORD, null);
             editor.commit();
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             finish();

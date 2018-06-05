@@ -6,18 +6,14 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ImageView;
@@ -27,24 +23,12 @@ import android.widget.SimpleAdapter;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.daimajia.slider.library.Animations.DescriptionAnimation;
 import com.daimajia.slider.library.SliderLayout;
 import com.daimajia.slider.library.SliderTypes.BaseSliderView;
 import com.daimajia.slider.library.SliderTypes.TextSliderView;
-import com.reppernews.sokajamur.app.AppController;
-
-import java.util.HashMap;
-
-import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
-import static com.reppernews.sokajamur.LoginActivity.TAG_NOHP;
-import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
-
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
 import com.reppernews.sokajamur.app.AppController;
 import com.squareup.picasso.Picasso;
 
@@ -52,10 +36,20 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.HashMap;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.reppernews.sokajamur.LoginActivity.TAG_ALAMAT;
+import static com.reppernews.sokajamur.LoginActivity.TAG_EMAIL;
+import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
+import static com.reppernews.sokajamur.LoginActivity.TAG_NAMA;
+import static com.reppernews.sokajamur.LoginActivity.TAG_NOHP;
+import static com.reppernews.sokajamur.LoginActivity.TAG_PASSWORD;
+import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
+
+
 
 public class HomeUser extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, AdapterView.OnItemClickListener {
 
@@ -65,6 +59,7 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
     public static final String TAG_GAMBAR = "gambar";
     public static final String TAG_JUDUL = "judul";
     public static final String URL_GET_ALL = "http://tifpolije16.com/tampilArtikel.php/";
+
     public static final String TAG = AppController.class.getSimpleName();
     private SliderLayout sliderLayout;
     ListView listView;
@@ -158,6 +153,10 @@ public class HomeUser extends AppCompatActivity implements NavigationView.OnNavi
             editor.putBoolean(LoginActivity.session_status, false);
             editor.putString(TAG_ID, null);
             editor.putString(TAG_NOHP, null);
+            editor.putString(TAG_NAMA, null);
+            editor.putString(TAG_ALAMAT, null);
+            editor.putString(TAG_EMAIL, null);
+            editor.putString(TAG_PASSWORD, null);
             editor.commit();
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
             finish();

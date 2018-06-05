@@ -9,10 +9,6 @@
             android:icon="@drawable/menujamur"
             android:title="Info Barang" />
         <item
-            android:id="@+id/nav_pesananPembeli"
-            android:icon="@drawable/belanja"
-            android:title="Pesanan Pembeli" />
-        <item
             android:id="@+id/nav_logoutAdmin"
             android:icon="@drawable/logout"
             android:title="Logout" />

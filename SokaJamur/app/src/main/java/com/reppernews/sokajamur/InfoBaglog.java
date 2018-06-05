@@ -120,14 +120,14 @@ public class InfoBaglog extends AppCompatActivity {
 
             }
         });
-        Toast.makeText(getApplicationContext(), "toast"+idbaglog, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "toast"+idbaglog, Toast.LENGTH_LONG).show();
         AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
         txtStok.setText(stokbaglog);
 
         combobox2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Selected "+ adapter.getItem(position), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), "Selected "+ adapter.getItem(position), Toast.LENGTH_SHORT).show();
                 isispinner[0] = String.valueOf(adapter.getItem(position));
             }
             @Override
@@ -138,11 +138,18 @@ public class InfoBaglog extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(session){
-                    hasilHitung();
-                    btpilih3.setVisibility(View.VISIBLE);
-                    btpilih4.setVisibility(View.VISIBLE);
-                    btpilih2.setVisibility(View.GONE);
-
+                    if(txtJumlah.getText() == null){
+                        Toast.makeText(getApplicationContext(), "Jumlah Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
+                        btpilih3.setVisibility(View.GONE);
+                        btpilih4.setVisibility(View.GONE);
+                        btpilih2.setVisibility(View.VISIBLE);
+                    }
+                    else {
+                        hasilHitung();
+                        btpilih3.setVisibility(View.VISIBLE);
+                        btpilih4.setVisibility(View.VISIBLE);
+                        btpilih2.setVisibility(View.GONE);
+                    }
                 }
 
                 else{
@@ -209,15 +216,14 @@ public class InfoBaglog extends AppCompatActivity {
                     JSONObject jObj = new JSONObject(response);
                     success1 = jObj.getInt(TAG_SUCCESS);
                     stokbaru = jObj.getString(TAG_STOK_BAGLOG);
-                    Toast.makeText(getApplicationContext(),"sukses tah"+success1,Toast.LENGTH_LONG).show();
                     if(success1 == 1){
                         SharedPreferences.Editor editor = sharedPreferences2.edit();
                         editor.putString(TAG_STOK_BAGLOG, stokbaru);
                         editor.commit();
-                        Toast.makeText(getApplicationContext(),"Pesan Berhasil", Toast.LENGTH_LONG).show();
+                    //    Toast.makeText(getApplicationContext(),"Pesan Berhasil", Toast.LENGTH_LONG).show();
                     }
                     else{
-                        Toast.makeText(getApplicationContext(),"Gagal gan", Toast.LENGTH_LONG).show();
+                       // Toast.makeText(getApplicationContext(),"Gagal gan", Toast.LENGTH_LONG).show();
                     }
 
 

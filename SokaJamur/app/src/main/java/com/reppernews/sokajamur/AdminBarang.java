@@ -86,7 +86,7 @@ public class AdminBarang extends AppCompatActivity {
 
             }
         });
-        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -113,7 +113,7 @@ public class AdminBarang extends AppCompatActivity {
 
             }
         });
-        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
+        AppController.getInstance().addToRequestQueue(stringRequest1, tag_json_obj);
         AppController.getInstance().addToRequestQueue(stringRequest, tag_json_obj);
         sharedpreferences2 = getSharedPreferences(my_shared_preferences2, Context.MODE_PRIVATE);
         idjamur = sharedpreferences2.getString(TAG_ID_JAMUR, null);
@@ -192,7 +192,7 @@ public class AdminBarang extends AppCompatActivity {
 
     }
     public void updateJamur(final String idJamur, final String stokjamur) {
-        StringRequest stringRequest1 = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
+        StringRequest stringRequest2 = new StringRequest(Request.Method.POST, url3, new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -214,13 +214,12 @@ public class AdminBarang extends AppCompatActivity {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("idbarang", idJamur);
                 params.put("stokbaru", stokjamur);
-                //params.put("confirm_password", confirm_password);
                 return params;
             }
         };
 
         // Adding request to request queue
-        AppController.getInstance().addToRequestQueue(stringRequest1, tag_json_obj);
+        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
     }
 
 

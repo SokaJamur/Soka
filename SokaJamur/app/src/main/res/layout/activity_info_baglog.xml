@@ -173,6 +173,7 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="88dp"
                     android:ems="10"
+                    android:enabled="false"
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toTopOf="@+id/editText2"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -183,6 +184,7 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="88dp"
                     android:ems="10"
+                    android:enabled="false"
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toTopOf="@+id/editText3"
                     app:layout_constraintEnd_toEndOf="parent" />
@@ -193,6 +195,7 @@
                     android:layout_height="40dp"
                     android:layout_marginEnd="88dp"
                     android:ems="10"
+                    android:enabled="false"
                     android:inputType="textPersonName"
                     app:layout_constraintBottom_toTopOf="@+id/editText4"
                     app:layout_constraintEnd_toEndOf="parent" />

@@ -40,20 +40,21 @@
         </activity>
         <activity android:name=".PesananSaya" />
         <activity android:name=".ProfilUser" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".DaftarActivity"
-            android:label="DaftarActivity"></activity>
-        <activity android:name=".InfoJamur"></activity>
-        <activity android:name=".InfoBaglog"></activity>
+            android:label="DaftarActivity" />
+        <activity android:name=".InfoJamur" />
+        <activity android:name=".InfoBaglog" />
         <activity
             android:name=".HomeAdmin"
-            android:label="@string/title_activity_home_admin"></activity>
+            android:label="@string/title_activity_home_admin"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
 
-        <activity android:name=".AdminBarang"/>
-        <activity android:name=".Artikel">
-        </activity>
 
+        <activity android:name=".AdminBarang" />
+        <activity android:name=".Artikel"></activity>
+        <activity android:name=".DetailArtikel"></activity>
     </application>
 
 </manifest>

@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         listView = (ListView) findViewById(R.id.listView);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getJSON();
@@ -197,7 +198,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(HomeActivity.this, Artikel.class);
+        Intent intent = new Intent(HomeActivity.this, DetailArtikel.class);
+        Bundle b = new Bundle();
         HashMap<String,String> map=(HashMap)parent.getItemAtPosition(position);
         String id_artikel = map.get(TAG_ID_ARTIKEL).toString();
         intent.putExtra(TAG_ID_ARTIKEL,id_artikel);

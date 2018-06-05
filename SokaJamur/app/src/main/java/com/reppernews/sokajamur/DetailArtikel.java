@@ -1,58 +1,38 @@
 package com.reppernews.sokajamur;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.util.Log;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
+import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.StringRequest;
 import com.reppernews.sokajamur.app.AppController;
-import com.squareup.picasso.Picasso;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.BitSet;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Handler;
 
 import static com.reppernews.sokajamur.HomeActivity.TAG_ID_ARTIKEL;
-import static com.reppernews.sokajamur.Artikel.TAG_JUDUL;
-import static com.reppernews.sokajamur.Artikel.TAG_ISI;
 import static com.reppernews.sokajamur.PesananSaya.TAG_ID_PESAN;
-import static com.reppernews.sokajamur.SplashScreen.TAG_ID;
 
-public abstract class Artikel extends AppCompatActivity implements SwipeRefreshLayout.OnRefreshListener{
+public class DetailArtikel extends AppCompatActivity {
     TextView txtJudul, txtIsi;
     private String url = Server.URL + "detailArtikel.php";
     String tag_json_obj = "json_obj_req";
     public static final String TAG_ID_ARTIKEL2 = "id_artikel";
     public static final String TAG_JUDUL= "judul";
     public static final String TAG_ISI= "isi";
-    public static final String TAG_GAMBAR= "gambar";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_detail_pesanan);
         setContentView(R.layout.activity_detail_artikel);
         txtJudul = (TextView) findViewById(R.id.judul);
         txtIsi = (TextView) findViewById(R.id.isi);
@@ -74,9 +54,11 @@ public abstract class Artikel extends AppCompatActivity implements SwipeRefreshL
                     String id_artikel = jObj.getString(TAG_ID_ARTIKEL2);
                     String judul = jObj.getString(TAG_JUDUL);
                     String isi = jObj.getString(TAG_ISI);
-                    String gambar = jObj.getString(TAG_GAMBAR);
 
                     txtJudul.setText(judul);
+                    //String nama = jObj.get(TAG_ID_NAMA);
+
+
 
                 } catch (JSONException e) {
                     // JSON error
@@ -102,6 +84,8 @@ public abstract class Artikel extends AppCompatActivity implements SwipeRefreshL
 
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+
+
     }
 
     @Override

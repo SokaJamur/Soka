@@ -198,7 +198,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Intent intent = new Intent(HomeActivity.this, InfoBaglog.class);
+        Intent intent = new Intent(HomeActivity.this, Artikel.class);
 //        HashMap<String,String> map=(HashMap)parent.getItemAtPosition(position);
 //        String id_artikel = map.get(TAG_ID_ARTIKEL).toString();
 //        intent.putExtra(TAG_ID_ARTIKEL,id_artikel);

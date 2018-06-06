@@ -25,5 +25,6 @@
     </string-array>
     <string name="title_activity_home_admin">HomeAdmin</string>
     <string name="closeDrawer" />
+    <string name="title_activity_detail_artikel_user">DetailArtikelUser</string>
 
 </resources>

@@ -52,8 +52,15 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".AdminBarang" />
         <activity android:name=".DetailPesanan" />
-        <activity android:name=".Artikel"></activity>
-        <activity android:name=".DetailPesananUser"></activity>
+
+        <activity android:name=".DetailPesananUser"/>
+
+        <activity android:name=".DetailArtikel" />
+        <activity
+            android:name=".DetailArtikelUser"
+            android:label="@string/title_activity_detail_artikel_user"
+            android:theme="@style/AppTheme.NoActionBar"/>
+
     </application>
 
 </manifest>

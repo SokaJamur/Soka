@@ -1,8 +1,8 @@
 package com.reppernews.sokajamur;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,8 +20,7 @@ import java.util.Map;
 
 import static com.reppernews.sokajamur.PesananSaya.TAG_ID_PESAN;
 
-
-public class DetailPesanan extends AppCompatActivity {
+public class DetailPesananUser extends AppCompatActivity {
     TextView txtNama, txtAlamat, txtNamaBarang, txtTotal, txttglKirim, txtStatus, txtPembayaran, txtJumlah;
     private String url = Server.URL + "detailPesanan.php";
     String tag_json_obj = "json_obj_req";

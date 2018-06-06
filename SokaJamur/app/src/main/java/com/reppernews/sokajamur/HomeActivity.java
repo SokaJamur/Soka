@@ -145,7 +145,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             for(int i = 0; i<result.length(); i++){
                 JSONObject jo = result.getJSONObject(i);
                 String id_artikel = jo.getString(TAG_ID_ARTIKEL);
-                String gambar ="http://tifpolije16.com/soka/assests/img/" +jo.getString(TAG_GAMBAR);
+                String gambar ="http://tifpolije16.com/soka/" +jo.getString(TAG_GAMBAR);
                 String judul = jo.getString(TAG_JUDUL);
                 HashMap<String,String> employees = new HashMap<>();
                 employees.put(TAG_ID_ARTIKEL,id_artikel);

@@ -25,7 +25,6 @@ import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import android.text.InputType;
 
 import static com.reppernews.sokajamur.InfoBaglog.TAG_ID_BAGLOG;
 import static com.reppernews.sokajamur.InfoBaglog.TAG_STOK_BAGLOG;
@@ -175,6 +174,9 @@ public class InfoJamur extends AppCompatActivity {
                 final String total = txtTotal.getText().toString();
                 //Toast.makeText(getApplicationContext(),"total "+total, Toast.LENGTH_LONG).show();
                 inputpesanan(iduser1, jumlah1, spiner, total);
+                Intent intent = new Intent(getApplicationContext(), PesananSaya.class);
+                finish();
+                startActivity(intent);
 
 
 

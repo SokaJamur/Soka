@@ -360,6 +360,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:background="#6c6c6c"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/skranji_bold"
                 android:text="Hitung" />
 
             <LinearLayout
@@ -374,7 +377,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:background="#6c6c6c"
+                    android:fontFamily="@font/skranji_bold"
+                    android:padding="5dp"
                     android:text="Pesan"
+                    android:textColor="#ffffff"
                     android:visibility="gone" />
 
                 <Button
@@ -383,7 +390,11 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:background="#6c6c6c"
+                    android:fontFamily="@font/skranji_bold"
+                    android:padding="15dp"
                     android:text="Batal"
+                    android:textColor="#ffffff"
                     android:visibility="gone" />
             </LinearLayout>
         </LinearLayout>

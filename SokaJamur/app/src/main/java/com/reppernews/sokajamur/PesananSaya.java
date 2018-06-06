@@ -3,6 +3,7 @@ package com.reppernews.sokajamur;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -27,19 +28,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
+
 public class PesananSaya extends AppCompatActivity implements AdapterView.OnItemClickListener {
     private RecyclerView lvhape;
     public ListView listView;
     private String JSON_STRING;
     public static final String TAG_JSON_ARRAY = "result";
     private RequestQueue requestQueue;
+    public static final String TAG_ID = "iduser";
+    public static final String TAG_STATUS = "status";
     public static final String TAG_TOTAL = "total";
     public static final String TAG_ID_PESAN = "id_pesan";
+    public static final String TAG_NAMA1 = "nama";
     public static final String TAG_NAMA_BARANG = "nama_barang";
+    public static final String TAG_TGL_KIRIM = "tgl_kirim";
     private StringRequest stringRequest;
+    SharedPreferences sharedPreferences;
+    String tag_json_obj = "json_obj_req";
     private String url = Server.URL + "ambilpesanan.php";
     ArrayList<HashMap<String, String>> list_data;
-    public static final String URL_GET_ALL = "http://tifpolije16.com/pesananSaya.php/";
+    public static final String URL_GET_ALL = "http://tifpolije16.com/pesananSaya.php";
+    String iduser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,9 +57,14 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
         setContentView(R.layout.activity_pesanan_saya);
         listView = (ListView) findViewById(R.id.listView);
         getJSON();
+        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+        iduser = sharedPreferences.getString(TAG_ID, null);
         listView.setOnItemClickListener(this);
 
+
     }
+
+
     private void showEmployee(){
         JSONObject jsonObject = null;
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
@@ -61,27 +76,37 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
                 JSONObject jo = result.getJSONObject(i);
                 String total = jo.getString(TAG_TOTAL);
                 String id_pesan = jo.getString(TAG_ID_PESAN);
-                //String gambar ="http://tifpolije16.com/soka/assests/img/" +jo.getString(TAG_GAMBAR);
                 String nama_barang = jo.getString(TAG_NAMA_BARANG);
+                String nama = jo.getString(TAG_NAMA1);
+                String tgl_kirim = jo.getString(TAG_TGL_KIRIM);
+               String status = jo.getString(TAG_STATUS);
                 HashMap<String,String> employees = new HashMap<>();
                 employees.put(TAG_ID_PESAN,id_pesan);
                 employees.put(TAG_TOTAL, total);
-                employees.put(TAG_NAMA_BARANG,nama_barang);
+                 employees.put(TAG_NAMA1, nama);
+                employees.put(TAG_NAMA_BARANG, nama_barang);
+                employees.put(TAG_TGL_KIRIM, tgl_kirim);
+               employees.put(TAG_STATUS, status);
                 list.add(employees);
             }
 
-        } catch (JSONException e) {
+        }
+        catch (JSONException e) {
             e.printStackTrace();
         }
 
         ListAdapter adapter = new PesananSaya.MyAdapter(
                 PesananSaya.this, list, R.layout.list_pesan_user,
-                new String[]{TAG_TOTAL,TAG_NAMA_BARANG},
-                new int[]{R.id.total, R.id.nama_barang});
+                new String[]{TAG_TOTAL,TAG_NAMA_BARANG, TAG_TGL_KIRIM, TAG_NAMA1, TAG_TGL_KIRIM, TAG_STATUS},
+                new int[]{R.id.total, R.id.nama_barang, R.id.tglkirim, R.id.nama1, R.id.tglkirim, R.id.status});
 
         listView.setAdapter(adapter);
+
+
     }
+
     private void getJSON(){
+        final String idUser = String.valueOf(iduser).toString();
         class GetJSON extends AsyncTask<Void,Void,String> {
 
             ProgressDialog loading;
@@ -101,7 +126,7 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
             }
 
             @Override
-            protected String doInBackground(Void... params) {
+            protected String doInBackground(Void... v) {
                 RequestHandler rh = new RequestHandler();
                 String s = rh.sendGetRequest(URL_GET_ALL);
                 return s;

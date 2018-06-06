@@ -361,6 +361,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
+                android:background="#6c6c6c"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/skranji_bold"
                 android:text="Hitung" />
 
             <LinearLayout
@@ -375,6 +378,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:background="#6c6c6c"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/skranji_bold"
                     android:text="Pesan"
                     android:visibility="gone" />
 
@@ -384,6 +390,9 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
+                    android:background="#6c6c6c"
+                    android:textColor="#ffffff"
+                    android:fontFamily="@font/skranji_bold"
                     android:text="Batal"
                     android:visibility="gone" />
             </LinearLayout>

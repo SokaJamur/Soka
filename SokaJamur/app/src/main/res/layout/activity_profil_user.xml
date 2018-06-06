@@ -19,7 +19,7 @@
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout4"
-            android:layout_width="384dp"
+            android:layout_width="360dp"
             android:layout_height="452dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
@@ -229,6 +229,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="#6c6c6c"
+            android:textColor="#ffffff"
+            android:fontFamily="@font/skranji_bold"
             android:text="Edit" />
 
         <LinearLayout
@@ -243,6 +246,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="#6c6c6c"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/skranji_bold"
                 android:text="Simpan"
                 android:visibility="gone" />
 
@@ -252,6 +258,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_weight="1"
+                android:background="#6c6c6c"
+                android:textColor="#ffffff"
+                android:fontFamily="@font/skranji_bold"
                 android:text="Batal"
                 android:visibility="gone" />
         </LinearLayout>

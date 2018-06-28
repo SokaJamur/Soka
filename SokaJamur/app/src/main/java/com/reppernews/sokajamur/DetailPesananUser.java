@@ -37,7 +37,7 @@ public class DetailPesananUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_detail_pesanan);
+        setContentView(R.layout.activity_detail_pesanan_user);
         txtNama = (TextView) findViewById(R.id.textView30);
         txtAlamat = (TextView) findViewById(R.id.textView32);
         txtNamaBarang = (TextView) findViewById(R.id.textView40);
@@ -114,7 +114,7 @@ public class DetailPesananUser extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(getApplicationContext(), PesananSaya.class);
+        Intent intent = new Intent(getApplicationContext(), HomeAdmin.class);
         finish();
         startActivity(intent);
     }

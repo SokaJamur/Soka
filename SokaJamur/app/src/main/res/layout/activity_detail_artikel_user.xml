@@ -27,7 +27,6 @@
                 android:id="@+id/judul"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="100dp"
                 android:text="judul" />
 
             <TextView
@@ -35,7 +34,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:layout_weight="300dp"
                 android:text="isi" />
         </LinearLayout>
     </ScrollView>

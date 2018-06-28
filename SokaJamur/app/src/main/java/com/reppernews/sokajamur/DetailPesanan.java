@@ -3,6 +3,7 @@ package com.reppernews.sokajamur;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,7 @@ public class DetailPesanan extends AppCompatActivity {
     public static final String TAG_TOTAL_PESAN = "total";
     public static final String TAG_STATUS = "status";
     public static final String TAG_ALAMAT = "alamat";
+    Button btnbatal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +49,12 @@ public class DetailPesanan extends AppCompatActivity {
         txttglKirim = (TextView) findViewById(R.id.textView46);
         txtStatus = (TextView) findViewById(R.id.textView49);
         txtPembayaran = (TextView) findViewById(R.id.textView51);
+        btnbatal = (Button) findViewById(R.id.btnBatal);
         Bundle b = getIntent().getExtras();
         String id_pesan = b.getString(TAG_ID_PESAN);
         Toast.makeText(getApplicationContext(), "ini id pesan" + id_pesan, Toast.LENGTH_LONG).show();
         detailpesan(id_pesan);
+
 
     }
 
@@ -81,9 +85,6 @@ public class DetailPesanan extends AppCompatActivity {
                     txtNama.setText(nama);
                     txtAlamat.setText(alamat);
                     //String nama = jObj.get(TAG_ID_NAMA);
-
-
-
                 } catch (JSONException e) {
                     // JSON error
                     e.printStackTrace();
@@ -111,6 +112,7 @@ public class DetailPesanan extends AppCompatActivity {
 
 
     }
+
 
     @Override
     public void onBackPressed() {

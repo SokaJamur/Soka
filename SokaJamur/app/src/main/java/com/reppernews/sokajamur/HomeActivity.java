@@ -44,7 +44,6 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     public static final String TAG_ID_ARTIKEL = "id_artikel";
     public static final String TAG_GAMBAR = "gambar";
     public static final String TAG_JUDUL = "judul";
-    public static final String TAG_ISI= "isi";
     public static final String URL_GET_ALL = "http://tifpolije16.com/tampilArtikel.php/";
     public static final String TAG = AppController.class.getSimpleName();
     private SliderLayout sliderLayout;
@@ -149,12 +148,10 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                 String id_artikel = jo.getString(TAG_ID_ARTIKEL);
                 String gambar ="http://tifpolije16.com/soka/" +jo.getString(TAG_GAMBAR);
                 String judul = jo.getString(TAG_JUDUL);
-                String isi = jo.getString(TAG_ISI);
                 HashMap<String,String> employees = new HashMap<>();
                 employees.put(TAG_ID_ARTIKEL,id_artikel);
                 employees.put(TAG_GAMBAR,gambar);
                 employees.put(TAG_JUDUL,judul);
-                employees.put(TAG_ISI,isi);
                 list.add(employees);
             }
 
@@ -164,8 +161,8 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         ListAdapter adapter = new MyAdapter(
                 HomeActivity.this, list, R.layout.list_row,
-                new String[]{TAG_GAMBAR,TAG_JUDUL,TAG_ISI},
-                new int[]{R.id.gambar, R.id.judul, R.id.isi});
+                new String[]{TAG_GAMBAR,TAG_JUDUL},
+                new int[]{R.id.gambar, R.id.judul});
 
         listView.setAdapter(adapter);
     }

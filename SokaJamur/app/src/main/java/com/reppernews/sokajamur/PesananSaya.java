@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 
 public class PesananSaya extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -36,7 +37,6 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
     private String JSON_STRING;
     public static final String TAG_JSON_ARRAY = "result";
     private RequestQueue requestQueue;
-    public static final String TAG_ID = "iduser";
     public static final String TAG_STATUS = "status";
     public static final String TAG_TOTAL = "total";
     public static final String TAG_ID_PESAN = "id_pesan";
@@ -44,11 +44,11 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
     public static final String TAG_NAMA_BARANG = "nama_barang";
     public static final String TAG_TGL_KIRIM = "tgl_kirim";
     private StringRequest stringRequest;
-    SharedPreferences sharedPreferences;
+
     String tag_json_obj = "json_obj_req";
     private String url = Server.URL + "ambilpesanan.php";
     ArrayList<HashMap<String, String>> list_data;
-    public static final String URL_GET_ALL = "http://tifpolije16.com/pesananSaya.php";
+    public static final String URL_GET_ALL = "http://tifpolije16.com/pesananSaya.php?iduser=";
     String iduser;
 
     @Override
@@ -57,8 +57,8 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
         setContentView(R.layout.activity_pesanan_saya);
         listView = (ListView) findViewById(R.id.listView);
         getJSON();
-        sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
-        iduser = sharedPreferences.getString(TAG_ID, null);
+
+
         listView.setOnItemClickListener(this);
 
 
@@ -79,7 +79,7 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
                 String nama_barang = jo.getString(TAG_NAMA_BARANG);
                 String nama = jo.getString(TAG_NAMA1);
                 String tgl_kirim = jo.getString(TAG_TGL_KIRIM);
-               String status = jo.getString(TAG_STATUS);
+                String status = jo.getString(TAG_STATUS);
                 HashMap<String,String> employees = new HashMap<>();
                 employees.put(TAG_ID_PESAN,id_pesan);
                 employees.put(TAG_TOTAL, total);
@@ -106,7 +106,7 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
     }
 
     private void getJSON(){
-        final String idUser = String.valueOf(iduser).toString();
+
         class GetJSON extends AsyncTask<Void,Void,String> {
 
             ProgressDialog loading;
@@ -127,9 +127,12 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
 
             @Override
             protected String doInBackground(Void... v) {
+                SharedPreferences sharedPreferences = getSharedPreferences(my_shared_preferences, Context.MODE_PRIVATE);
+                iduser = sharedPreferences.getString(TAG_ID, null);
                 RequestHandler rh = new RequestHandler();
-                String s = rh.sendGetRequest(URL_GET_ALL);
+                String s = rh.sendGetRequestParam(URL_GET_ALL,iduser);
                 return s;
+
             }
         }
         GetJSON gj = new GetJSON();

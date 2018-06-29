@@ -1,8 +1,12 @@
 package com.reppernews.sokajamur;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,6 +29,7 @@ import static com.reppernews.sokajamur.PesananSaya.TAG_ID_PESAN;
 public class DetailPesanan extends AppCompatActivity {
     TextView txtNama, txtAlamat, txtNamaBarang, txtTotal, txttglKirim, txtStatus, txtPembayaran, txtJumlah;
     private String url = Server.URL + "detailPesanan.php";
+    private String url2 = Server.URL + "batalPesanan.php";
     String tag_json_obj = "json_obj_req";
     public static final String TAG_ID_PESAN2 = "id_pesan";
     public static final String TAG_NAMA_PESAN = "nama";
@@ -35,6 +40,7 @@ public class DetailPesanan extends AppCompatActivity {
     public static final String TAG_TOTAL_PESAN = "total";
     public static final String TAG_STATUS = "status";
     public static final String TAG_ALAMAT = "alamat";
+    ConnectivityManager conMgr;
     Button btnbatal;
 
     @Override
@@ -50,14 +56,96 @@ public class DetailPesanan extends AppCompatActivity {
         txtStatus = (TextView) findViewById(R.id.textView49);
         txtPembayaran = (TextView) findViewById(R.id.textView51);
         btnbatal = (Button) findViewById(R.id.btnBatal);
+        if(txtStatus.getText().toString().equals("Dibatalkan")){
+            btnbatal.setVisibility(View.GONE);
+        }
+        else{
+            btnbatal.setVisibility(View.VISIBLE);
+        }
         Bundle b = getIntent().getExtras();
-        String id_pesan = b.getString(TAG_ID_PESAN);
+        final String id_pesan = b.getString(TAG_ID_PESAN);
         Toast.makeText(getApplicationContext(), "ini id pesan" + id_pesan, Toast.LENGTH_LONG).show();
         detailpesan(id_pesan);
 
+        btnbatal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String status = txtStatus.getText().toString();
+                Toast.makeText(getApplicationContext(),"ini status"+status,Toast.LENGTH_LONG).show();
+                if(status.equals("Diproses") ||status.equals("Terkirim")){
+                    showDialog1();
+                }
+                else {
+                    batalpesan(id_pesan);
+                }
+
+            }
+        });
+
 
     }
+    private void showDialog1(){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
+                this);
 
+        // set title dialog
+        alertDialogBuilder.setTitle("Batalkan Pesanan?");
+
+        // set pesan dari dialog
+        alertDialogBuilder
+                .setMessage("Pesanan telah di proses, untuk membatalkan harap hubungi Admin = 089631843242")
+                .setIcon(R.mipmap.ic_launcher)
+                .setCancelable(false)
+                .setNegativeButton("Ya",new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        // jika tombol ini diklik, akan menutup dialog
+                        // dan tidak terjadi apa2
+                        dialog.cancel();
+                    }
+                });
+
+        // membuat alert dialog dari builder
+        AlertDialog alertDialog = alertDialogBuilder.create();
+
+        // menampilkan alert dialog
+        alertDialog.show();
+    }
+    public void batalpesan(final String id_pesan){
+        StringRequest strReq = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+
+                try {
+                    JSONObject jObj = new JSONObject(response);
+
+                } catch (JSONException e) {
+                    // JSON error
+                    e.printStackTrace();
+                }
+            }
+        }, new Response.ErrorListener() {
+
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        }) {
+
+            @Override
+            protected Map<String, String> getParams() {
+                // Posting parameters to login url
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("idpesan", id_pesan);
+                return params;
+            }
+        };
+
+        // Adding request to request queue
+        AppController.getInstance().addToRequestQueue(strReq, tag_json_obj);
+
+
+    }
     public void detailpesan(final String id_pesam) {
         StringRequest strReq = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
             @Override

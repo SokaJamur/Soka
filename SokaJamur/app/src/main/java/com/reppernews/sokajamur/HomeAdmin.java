@@ -57,10 +57,10 @@ public class HomeAdmin extends AppCompatActivity
     public static final String TAG_NAMA1 = "nama";
     public static final String TAG_NAMA_BARANG = "nama_barang";
     public static final String TAG_TGL_KIRIM = "tgl_kirim";
-    public static final String URL_GET_ALL = "http://tifpolije16.com/pesananSaya.php";
+    public static final String URL_GET_ALL = "http://tifpolije16.com/pesananAdmin.php";
     public static final String TAG_JSON_ARRAY = "result";
     String iduser;
-    public ListView listView2;
+    public ListView listView;
     private String JSON_STRING;
     ArrayList<HashMap<String, String>> list_data;
     
@@ -69,7 +69,7 @@ public class HomeAdmin extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_admin);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        listView2 = (ListView) findViewById(R.id.listView2);
+        listView = (ListView) findViewById(R.id.listView2);
         setSupportActionBar(toolbar);
         getJSON();
 
@@ -86,7 +86,7 @@ public class HomeAdmin extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         list_data = new ArrayList<HashMap<String, String>>();
-        listView2.setOnItemClickListener(this);
+        listView.setOnItemClickListener(this);
     }
 
     @Override
@@ -163,7 +163,7 @@ public class HomeAdmin extends AppCompatActivity
                 new String[]{TAG_TOTAL,TAG_NAMA_BARANG, TAG_TGL_KIRIM, TAG_NAMA1, TAG_TGL_KIRIM, TAG_STATUS},
                 new int[]{R.id.total, R.id.nama_barang, R.id.tglkirim, R.id.nama1, R.id.tglkirim, R.id.status});
 
-        listView2.setAdapter(adapter);
+        listView.setAdapter(adapter);
 
 
     }

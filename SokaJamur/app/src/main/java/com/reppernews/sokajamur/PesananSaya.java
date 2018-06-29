@@ -32,8 +32,7 @@ import static com.reppernews.sokajamur.LoginActivity.TAG_ID;
 import static com.reppernews.sokajamur.LoginActivity.my_shared_preferences;
 
 public class PesananSaya extends AppCompatActivity implements AdapterView.OnItemClickListener {
-    private RecyclerView lvhape;
-    public ListView listView;
+    public ListView listView2;
     private String JSON_STRING;
     public static final String TAG_JSON_ARRAY = "result";
     private RequestQueue requestQueue;
@@ -55,16 +54,10 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pesanan_saya);
-        listView = (ListView) findViewById(R.id.listView);
+        listView2 = (ListView) findViewById(R.id.listView);
         getJSON();
-
-
-        listView.setOnItemClickListener(this);
-
-
+        listView2.setOnItemClickListener(this);
     }
-
-
     private void showEmployee(){
         JSONObject jsonObject = null;
         ArrayList<HashMap<String,String>> list = new ArrayList<HashMap<String, String>>();
@@ -100,17 +93,13 @@ public class PesananSaya extends AppCompatActivity implements AdapterView.OnItem
                 new String[]{TAG_TOTAL,TAG_NAMA_BARANG, TAG_TGL_KIRIM, TAG_NAMA1, TAG_TGL_KIRIM, TAG_STATUS},
                 new int[]{R.id.total, R.id.nama_barang, R.id.tglkirim, R.id.nama1, R.id.tglkirim, R.id.status});
 
-        listView.setAdapter(adapter);
-
-
+        listView2.setAdapter(adapter);
     }
 
     private void getJSON(){
 
         class GetJSON extends AsyncTask<Void,Void,String> {
-
             ProgressDialog loading;
-
             @Override
             protected void onPreExecute() {
                 super.onPreExecute();

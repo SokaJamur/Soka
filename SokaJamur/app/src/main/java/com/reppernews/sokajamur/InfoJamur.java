@@ -140,13 +140,20 @@ public class InfoJamur extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (session) {
-                    if(txtJumlah.getText().toString().length() == 0){
+                    if(txtJumlah.getText().toString().length() <= 0){
                         Toast.makeText(getApplicationContext(), "Jumlah Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                     }else {
-                        hasilHitung();
-                        btpilih3.setVisibility(View.VISIBLE);
-                        btpilih4.setVisibility(View.VISIBLE);
-                        btpilih2.setVisibility(View.GONE);
+                        int jmlInputan = Integer.parseInt(txtJumlah.getText().toString());
+                        int stok = Integer.parseInt(stokjamur);
+                        if(jmlInputan>stok){
+                            Toast.makeText(getApplicationContext(), "Masukan Jumlah Yang Valid", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            hasilHitung();
+                            btpilih3.setVisibility(View.VISIBLE);
+                            btpilih4.setVisibility(View.VISIBLE);
+                            btpilih2.setVisibility(View.GONE);
+                        }
                     }
 
                 } else {

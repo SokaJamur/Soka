@@ -59,7 +59,37 @@ public class InfoBaglog extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+
+                    JSONObject jsonObject = new JSONObject(response);
+                    String idbaglog = jsonObject.getString(TAG_ID_BAGLOG);
+                    String stokbaglog = jsonObject.getString(TAG_STOK_BAGLOG);
+                    String namabaglog = jsonObject.getString(TAG_NAMA_BAGLOG);
+                    String hargabaglog = jsonObject.getString(TAG_HARGA_BAGLOG);
+
+                    SharedPreferences.Editor editor = sharedPreferences2.edit();
+                    editor.putString(TAG_ID_BAGLOG, idbaglog);
+                    editor.putString(TAG_STOK_BAGLOG, stokbaglog);
+                    editor.putString(TAG_NAMA_BAGLOG, namabaglog);
+                    editor.putString(TAG_HARGA_BAGLOG, hargabaglog);
+                    editor.commit();
+                }
+                catch (JSONException e) {
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        //Toast.makeText(getApplicationContext(), "toast"+idbaglog, Toast.LENGTH_LONG).show();
+        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_info_baglog);
         final String[] isispinner = new String[1];
         //idbaglog = sharedPreferences2.getString(TAG_ID_BAGLOG, null);
@@ -93,35 +123,7 @@ public class InfoBaglog extends AppCompatActivity {
         txtAlamat.setText(alamat);
         //stokawal = Integer.parseInt(stokbaglog);
         harga = 2500;
-        stringRequest2 = new StringRequest(Request.Method.POST, url2, new Response.Listener<String>() {
-            @Override
-            public void onResponse(String response) {
-                try {
 
-                    JSONObject jsonObject = new JSONObject(response);
-                    String idbaglog = jsonObject.getString(TAG_ID_BAGLOG);
-                    String stokbaglog = jsonObject.getString(TAG_STOK_BAGLOG);
-                    String namabaglog = jsonObject.getString(TAG_NAMA_BAGLOG);
-                    String hargabaglog = jsonObject.getString(TAG_HARGA_BAGLOG);
-
-                    SharedPreferences.Editor editor = sharedPreferences2.edit();
-                    editor.putString(TAG_ID_BAGLOG, idbaglog);
-                    editor.putString(TAG_STOK_BAGLOG, stokbaglog);
-                    editor.putString(TAG_NAMA_BAGLOG, namabaglog);
-                    editor.putString(TAG_HARGA_BAGLOG, hargabaglog);
-                    editor.commit();
-                }
-                catch (JSONException e) {
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-
-            }
-        });
-        //Toast.makeText(getApplicationContext(), "toast"+idbaglog, Toast.LENGTH_LONG).show();
-        AppController.getInstance().addToRequestQueue(stringRequest2, tag_json_obj);
         txtStok.setText(stokbaglog);
 
         combobox2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -142,10 +144,17 @@ public class InfoBaglog extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), "Jumlah Tidak Boleh Kosong", Toast.LENGTH_LONG).show();
                     }
                     else {
-                        hasilHitung();
-                        btpilih3.setVisibility(View.VISIBLE);
-                        btpilih4.setVisibility(View.VISIBLE);
-                        btpilih2.setVisibility(View.GONE);
+                        int jmlInputan = Integer.parseInt(txtJumlah.getText().toString());
+                        int stok = Integer.parseInt(stokbaglog);
+                        if(jmlInputan>stok){
+                            Toast.makeText(getApplicationContext(), "Masukan Jumlah Yang Valid", Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            hasilHitung();
+                            btpilih3.setVisibility(View.VISIBLE);
+                            btpilih4.setVisibility(View.VISIBLE);
+                            btpilih2.setVisibility(View.GONE);
+                        }
                     }
                 }
 
